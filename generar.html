@@ -21,11 +21,11 @@
         </nav>
         <div class="contenido-adicional">
             <div class="cuadro-principal">
-                <img src="imgg/code.png" alt="Código" class="imagen-codigo">
+                <div id="qrcode" class="imagen-codigo"></div>
                 <div class="botones">
-                    <button class="btn">Generar Código de Entradas</button>
-                    <button class="btn">Generar Código de Salidas</button>
-                    <button class="btn">Generar Código de Pérdidas</button>
+                    <button class="btn" onclick="generarQR('entradas')">Generar Código de Entradas</button>
+                    <button class="btn" onclick="generarQR('salidas')">Generar Código de Salidas</button>
+                    
                 </div>
             </div>
         </div>
@@ -33,5 +33,7 @@
     <footer>
         <p>© 2024 Bodega La Quindianita</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="generar.js"></script>
 </body>
 </html>
