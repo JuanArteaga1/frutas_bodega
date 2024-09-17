@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="proveedor.css">
+    <title>Agregar Proveedor</title>
+</head>
+<body>
+    <div class="contenedor">
+        <nav class="menu">
+            <button class="menu-toggle">MENU</button>
+            <ul class="menu-items">
+                <li><a href="agregar.html">Agregar Producto</a></li>
+                <li><a href="sacar.html">Sacar Producto</a></li>
+                <li><a href="proveedor.html">Agregar Proveedor</a></li>
+                <li><a href="generar.html">Generación de QR</a></li>
+                <li><a href="empleado.html">Agregar Empleado</a></li>
+                <li><a href="home.html">Salir</a></li>
+            </ul>
+        </nav>
+        <main class="contenido">
+            <h1>AGREGAR PROVEEDOR</h1>
+            <div class="formulario-container">
+                <form class="formulario-proveedor">
+                    <label for="id_proveedor">ID del Proveedor</label>
+                    <input type="text" id="id_proveedor" placeholder="Ingrese el ID del proveedor">
+                
+                    <label for="nombre">Nombre del Proveedor</label>
+                    <input type="text" id="nombre" placeholder="Ingrese el nombre del proveedor">
+                    
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" placeholder="Ingrese el teléfono del proveedor">
+                    
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" placeholder="Ingrese la dirección del proveedor">
+                    
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" placeholder="Ingrese el correo electrónico">
+                    
+                    <button type="submit" class="boton-agregar">AGREGAR</button>
+                </form>
+                <img src="img/pic_pro.png" alt="Proveedor" class="imagen-proveedor">
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>© 2024 Bodega La Quindianita</p>
+    </footer>
+</body>
+</html>

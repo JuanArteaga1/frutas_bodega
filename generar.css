@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Opcional: para un efecto de movimiento */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('img/fondotest4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.contenedor {
+    display: flex;
+    flex: 1;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.menu {
+    position: relative; /* Permite que el menú se posicione respecto a su contenedor */
+    width: 300px; /* Ancho del menú */
+    background-color: #665f6c;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido del menú */
+    align-items: center; /* Centra horizontalmente el contenido del menú */
+    height: 100vh; /* Ajusta la altura del menú al 100% de la altura del viewport */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.menu-toggle {
+    background-color: #332f35;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #665f6c;
+    position: absolute;
+    top: 0;
+    left: -335px; /* Oculta el menú fuera del área visible */
+    width: 270px;
+    height: 100%;
+    overflow: hidden;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente los elementos dentro del menú */
+    justify-content: center; /* Centra verticalmente los elementos dentro del menú */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.menu-items li {
+    width: 100%; /* Asegura que el elemento de la lista ocupe el ancho completo del menú */
+    text-align: center; /* Centra el texto dentro de cada elemento de la lista */
+    margin-bottom: 20px;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    width: 100%; /* Asegura que el enlace ocupe el ancho completo del elemento de la lista */
+}
+
+.menu:hover .menu-items,
+.menu-items:hover {
+    left: 0; /* Muestra el menú cuando se pasa el cursor sobre el botón o el menú */
+}
+/* Cambiar color de fondo al pasar el cursor sobre los elementos del menú */
+.menu-items a:hover {
+    background-color: black; /* Cambia el color de fondo a negro */
+    color: white; /* Cambia el color del texto a blanco para mejor contraste */
+    transition: background-color 0.3s ease; /* Añade una transición suave para el cambio de color */
+}
+
+.contenido-adicional {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 40px; /* Aumenta el padding para agrandar el área del contenido */
+    background-color: rgba(255, 255, 255, 0.205);
+    position: relative;
+    margin-left: 400px; /* Reduce el margen para que haya más espacio para el contenido */
+    margin: 30px;
+    border-radius: 10px;
+    width: calc(100% - 400px); /* Ajusta el ancho para ocupar más espacio */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cuadro-principal {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 60px; /* Aumenta el padding para agrandar el cuadro principal */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Aumenta el ancho del cuadro principal */
+    max-width: 800px; /* Limita el ancho máximo para evitar que se haga demasiado grande */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.imagen-codigo {
+    width: 400px; /* Tamaño ajustado de la imagen */
+    height: auto;
+    margin-bottom: 20px; /* Margen ajustado */
+    background-color: white; /* Fondo blanco sólido */
+    padding: 10px; /* Espacio alrededor de la imagen */
+    border-radius: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.btn {
+    background-color: #665f6c;
+    color: white;
+    border: none;
+    padding: 15px; /* Aumenta el tamaño del botón */
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+    cursor: pointer;
+    margin-bottom: 15px; /* Espacio entre los botones */
+    border-radius: 10px;
+    width: 300px; /* Ajusta el ancho de los botones */
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #332f35;
+}
+
+footer {
+    width: 100%;
+    background-color: #332f35;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}

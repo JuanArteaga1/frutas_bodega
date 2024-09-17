@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:url('img/fondotest3.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Opcional: para un efecto de movimiento */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    z-index: 2;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1, p, .buttons {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards; /* forwards mantiene el estado final de la animación */
+}
+
+h1 {
+    animation-delay: 0.5s; /* Retrasa la animación del título */
+}
+
+p {
+    animation-delay: 1s; /* Retrasa la animación del párrafo */
+}
+
+.buttons {
+    animation-delay: 1.5s; /* Retrasa la animación de los botones */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.26); /* Capa de oscurecimiento */
+    z-index: 1;
+}
+
+.container {
+    z-index: 2;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #665f6c;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #332f35;
+}

@@ -1,0 +1,174 @@
+/* Estilos generales */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background: url('img/fondotest.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* Asegura que el overlay se posicione correctamente */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Opcional: para un efecto de movimiento */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fondo oscuro superpuesto */
+.overlay {
+    position: fixed; /* Cubre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 102, 255, 0.5); /* Capa de oscurecimiento con opacidad del 50% */
+    z-index: 1; /* Asegura que esté detrás del contenido principal */
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+/* Estilos para la barra lateral */
+.barra-lateral {
+    width: 300px;
+    background-color: #665f6c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 2; /* Asegura que la barra esté por encima del overlay */
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+.barra-lateral h1 {
+    font-size: 28px;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+/* Estilos para el contenido principal */
+.contenido {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: relative; /* Asegura que el contenido esté encima del overlay */
+    z-index: 2; /* Asegura que el contenido esté por encima del overlay */
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+/* Estilos para el contenedor de inicio de sesión */
+.login-overlay {
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco semitransparente para el cuadro de fondo */
+    padding: 80px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Asegura que esté por encima del overlay */
+    z-index: 3; /* Asegura que el contenedor de login esté por encima del overlay */
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+/* Estilos para el cuadro de inicio de sesión */
+.login {
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+.login h2 {
+    margin-bottom: 20px;
+}
+
+.login-img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+a.btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #665f6c;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+a.btn:hover {
+    background-color: #332f35;
+}
+
+a.btn.salir-btn {
+    background-color: #665f6c;
+}
+
+a.btn.salir-btn:hover {
+    background-color: #332f35;
+}
+
+/* Estilos para el footer */
+footer {
+    width: 300px;
+    background-color: #332f35;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Asegura que el footer esté por encima del overlay */
+}

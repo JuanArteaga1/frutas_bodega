@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="empleado.css">
+    <title>Agregar Empleado</title>
+</head>
+<body>
+    <div class="contenedor">
+        <nav class="menu">
+            <button class="menu-toggle">MENU</button>
+            <ul class="menu-items">
+                <li><a href="agregar.html">Agregar Producto</a></li>
+                <li><a href="sacar.html">Sacar Producto</a></li>
+                <li><a href="proveedor.html">Agregar Proveedor</a></li>
+                <li><a href="generar.html">Generación de QR</a></li>
+                <li><a href="empleado.html">Agregar Empleado</a></li>
+                <li><a href="home.html">Salir</a></li>
+            </ul>
+        </nav>
+        <main class="contenido">
+            <h1>AGREGAR EMPLEADO</h1>
+            <div class="formulario-container">
+                <form class="formulario-empleado">
+                    <label for="id_empleado">ID del empleado</label>
+                    <input type="text" id="id_empleado" placeholder="Ingrese el ID del producto">
+                
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Ingrese el nombre del empleado">
+                    
+                    <label for="genero">Género</label>
+                    <select id="genero">
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
+                        <option value="otro">otro</option>
+                    </select>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" placeholder="Ingrese la dirección del empleado">
+                    
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" placeholder="Ingrese el correo electrónico">
+                    
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" placeholder="Ingrese la contraseña">
+                    
+                    <button type="submit" class="boton-crear">Crear Cuenta</button>
+                </form>
+                <img src="img/pic_emp.png" alt="Empleado" class="imagen-empleado">
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>© 2024 Bodega La Quindianita</p>
+    </footer>
+</body>
+</html>
