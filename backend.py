@@ -95,6 +95,3 @@ if __name__ == '__main__':
     
 
 
-print("jara conciencia")
-print("jara dos")
-print("jara 3")s
