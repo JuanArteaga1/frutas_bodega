@@ -2,3 +2,7 @@
 node_modules/
 dist/
 build/
+
+
+#codigo para descargar las actualizaciones del repositorio hacer cada vez que 
+git pull origin master 
