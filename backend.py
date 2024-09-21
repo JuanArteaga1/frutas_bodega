@@ -93,3 +93,6 @@ def gestionar_inventario():
 if __name__ == '__main__':
     main()
     
+
+
+print("jara conciencia")
