@@ -170,7 +170,7 @@ input[type="text"] {
     border-radius: 5px;
 }
 
-.boton-agregar {
+.boton-sacar {
     background-color: #665f6c;
     color: white;
     border: none;
@@ -182,7 +182,7 @@ input[type="text"] {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-.boton-agregar:hover {
+.boton-sacar:hover {
     background-color: #332f35;
 }
 

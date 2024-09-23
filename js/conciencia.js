@@ -15,3 +15,53 @@ function capturaAgregar(){
 
     document.querySelector(".formulario-producto").reset();
 }
+//capturar datos del formulario agregar frutas
+function capturaSacar(){
+    var id,nomfruta,cantidad;
+
+    id = document.getElementById("id_producto").value;
+    nomfruta = document.getElementById("nombre").value;
+    cantidad = document.getElementById("cantidad").value;
+
+
+    console.log("ID: " + id + ", nombre: "+ nomfruta + ", cantidad: "+ cantidad);
+
+    alert("exitoso")
+
+    document.querySelector(".formulario-producto").reset();
+
+}
+function capturarProveedor(){
+    var id,nomproveedor,telefono,direccion,email;
+
+    id = document.getElementById("id_proveedor").value;
+    nomproveedor = document.getElementById("nombre").value;
+    telefono = document.getElementById("telefono").value;
+    direccion = document.getElementById("direccion").value;
+    email = document.getElementById("email").value;
+
+
+    console.log("ID: " + id + ", nombre: "+ ", telefono: " + telefono +  ", direccion: "+ direccion + ", email: " + email);
+
+    alert("exitoso")
+
+    document.querySelector(".formulario-proveedor").reset();
+
+}
+function capturarEmpleado(){
+    var id,nomempleado,direccion,email,contraseña;
+
+    id = document.getElementById("id_empleado").value;
+    nomempleado = document.getElementById("nombre").value;
+    direccion = document.getElementById("direccion").value;
+    email = document.getElementById("email").value;
+    contraseña = document.getElementById("contraseña").value;
+
+
+    console.log("ID: " + id + ", nombre: "+ ", direccion: " + direccion +  ", email : "+ email + ", contraseña : " + contraseña);
+
+    alert("exitoso")
+
+    document.querySelector(".formulario-empleado").reset();
+
+}
