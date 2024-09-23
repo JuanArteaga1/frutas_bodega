@@ -15,7 +15,7 @@ function capturaAgregar(){
 
     document.querySelector(".formulario-producto").reset();
 }
-//capturar datos del formulario agregar frutas
+//capturar datos del formulario sacar frutas
 function capturaSacar(){
     var id,nomfruta,cantidad;
 
@@ -31,6 +31,7 @@ function capturaSacar(){
     document.querySelector(".formulario-producto").reset();
 
 }
+//capturar datos del formulario proveedor
 function capturarProveedor(){
     var id,nomproveedor,telefono,direccion,email;
 
@@ -48,6 +49,7 @@ function capturarProveedor(){
     document.querySelector(".formulario-proveedor").reset();
 
 }
+//capturar datos del formulario empleado
 function capturarEmpleado(){
     var id,nomempleado,direccion,email,contraseña;
 
@@ -58,7 +60,7 @@ function capturarEmpleado(){
     contraseña = document.getElementById("contraseña").value;
 
 
-    console.log("ID: " + id + ", nombre: "+ ", direccion: " + direccion +  ", email : "+ email + ", contraseña : " + contraseña);
+    console.log("ID: " + id + ", nombre: "+ nomempleado + ", direccion: " + direccion +  ", email : "+ email + ", contraseña : " + contraseña);
 
     alert("exitoso")
 
