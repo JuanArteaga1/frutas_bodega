@@ -25,24 +25,43 @@ def iniciar_sesion():
 
 # Agregar fruta
 def agregar_fruta():
-    
-    id = 1#input("ingrese id: ")
-    fruta = "pera" #input("Ingresa el nombre de la fruta: ")
-    origen = "pasto"#input("ingrese de donde viene la fruta: ")
-    precio = 1200#input("ingrese el precio de la fruta: ")
-    cantidad = 12#int(input("Ingresa la cantidad en KG: "))
+    id = 1  # input("ingrese id: ")
+    fruta = "pera"  # input("Ingresa el nombre de la fruta: ")
+    origen = "pasto"  # input("ingrese de donde viene la fruta: ")
+    precio = 1600  # input("ingrese el precio de la fruta: ")
+    cantidad = 20  # int(input("Ingresa la cantidad en KG: "))
     fecha_hoy = datetime.date.today()
-    cursor.execute(
-        "INSERT INTO productos (id_producto, nombre, precio, origen) VALUES (%s, %s, %s, %s)",
-        (id, fruta, precio, origen)
-    )
-    cursor.execute(
-        "INSERT INTO inventario (id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
-        (id, cantidad, fecha_hoy, cantidad)
-    )
+
+    # Consultar si el producto ya existe en la tabla productos comparando nombre, precio y origen
+    cursor.execute("""
+        SELECT * FROM productos 
+        WHERE id_producto = %s AND nombre = %s AND precio = %s
+        """, (id, fruta, precio))
+    fruta_existente = cursor.fetchone()
+
+    if fruta_existente:
+        # Siempre insertamos un nuevo registro en el inventario con el movimiento de entrada
+        cursor.execute(
+            "INSERT INTO inventario (id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
+            (id, cantidad, fecha_hoy, cantidad)
+        )
+    else:
+        # Si el producto no existe, insertamos el nuevo producto en la tabla productos
+        cursor.execute(
+            "INSERT INTO productos (id_producto, nombre, precio, origen) VALUES (%s, %s, %s, %s)",
+            (id, fruta, precio, origen)
+        )
+
+        # Insertar en inventario también
+        cursor.execute(
+            "INSERT INTO inventario (id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
+            (id, cantidad, fecha_hoy, cantidad)
+        )
+
+    # Guardar los cambios
     bd.commit()
 
-    print(f"Se han agregado {cantidad} KG {fruta}(s) al inventario.")
+    print(f"Se han agregado {cantidad} KG de {fruta}(s) al inventario.")
 
 # Eliminar fruta
 def eliminar_fruta():
