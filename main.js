@@ -38,4 +38,3 @@ app.on('activate', () => {
         crearVentanaPrincipal();
     }
 });
-
