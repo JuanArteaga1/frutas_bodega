@@ -50,7 +50,7 @@ function capturaSacar(){
 }
 //capturar datos del formulario proveedor
 function capturarProveedor(){
-    var id,nomproveedor,telefono,direccion,email;
+    var id, nomproveedor, telefono, direccion, email;
 
     id = document.getElementById("id_proveedor").value;
     nomproveedor = document.getElementById("nombre").value;
@@ -58,14 +58,13 @@ function capturarProveedor(){
     direccion = document.getElementById("direccion").value;
     email = document.getElementById("email").value;
 
+    console.log("ID: " + id + ", nombre: " + nomproveedor + ", telefono: " + telefono + ", direccion: " + direccion + ", email: " + email);
 
-    console.log("ID: " + id + ", nombre: "+ ", telefono: " + telefono +  ", direccion: "+ direccion + ", email: " + email);
-
-    alert("exitoso")
+    alert("exitoso");
 
     document.querySelector(".formulario-proveedor").reset();
-
 }
+
 //capturar datos del formulario empleado
 function capturarEmpleado(){
     var id,nomempleado,direccion,email,contraseña;
