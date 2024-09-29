@@ -16,69 +16,59 @@ function enviarDatosAlServidor(url, datos) {
   }
 
 
-function enviarDatos() {
-    const datosProducto = {
-        tipo: "producto",
+function enviarDatos()  {
+    const datos_entrada = {
+        tipo: 'entrada',
         id_producto: document.getElementById("id_producto").value,
         nombre: document.getElementById("nombre").value,
         origen: document.getElementById("origen").value,
         precio: document.getElementById("precio").value,
         cantidad: document.getElementById("cantidad").value
     };
-
-    // Llamar a la función para enviar los datos al servidor
-    enviarDatosAlServidor('http://127.0.0.1:5000/agregar_fruta', datosProducto);
+    enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_entrada);
+    document.querySelector(".formulario-producto").reset();
     
 }
 document.getElementById('btn_agregar').addEventListener('click', enviarDatos);
 
 
 function capturaSacar(){
-    var id,nomfruta,cantidad;
-
-    id = document.getElementById("id_producto").value;
-    nomfruta = document.getElementById("nombre").value;
-    cantidad = document.getElementById("cantidad").value;
-
-
-    console.log("ID: " + id + ", nombre: "+ nomfruta + ", cantidad: "+ cantidad);
-
-    alert("exitoso")
-
-    document.querySelector(".formulario-producto").reset();
-
+    const datos_salida = {
+      tipo: 'salida',
+      id_producto: document.getElementById("id_producto").value,
+      nomfruta: document.getElementById("nombre").value,
+      cantidad: document.getElementById("cantidad").value
+    }
+    enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida);
 }
 //capturar datos del formulario proveedor
 function capturarProveedor(){
-    var id, nomproveedor, telefono, direccion, email;
-
-    id = document.getElementById("id_proveedor").value;
-    nomproveedor = document.getElementById("nombre").value;
-    telefono = document.getElementById("telefono").value;
-    direccion = document.getElementById("direccion").value;
-    email = document.getElementById("email").value;
-
-    console.log("ID: " + id + ", nombre: " + nomproveedor + ", telefono: " + telefono + ", direccion: " + direccion + ", email: " + email);
-
-    alert("exitoso");
-
-    document.querySelector(".formulario-proveedor").reset();
+  const datos_proveedor = {
+      tipo: 'proveedor',
+      id_proveedor: document.getElementById("id_proveedor").value,
+      nombre: document.getElementById("nombre").value,  // Cambié "nomproveedor" a "nombre"
+      telefono: document.getElementById("telefono").value,
+      direccion: document.getElementById("direccion").value,
+      email: document.getElementById("email").value
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_proveedor);
+  
 }
 
 //capturar datos del formulario empleado
 function capturarEmpleado(){
-    var id,nomempleado,direccion,email,contraseña;
+    const datos_empleado = {
+      tipo: "empleado",
+      id_empleado: document.getElementById("id_empleado").value,
+      nombre: document.getElementById("nombre").value,
+      apellido: document.getElementById("apellido").value,
+      direccion: document.getElementById("direccion").value,
+      telefono: document.getElementById("telefono").value,
+      email: document.getElementById("email").value,
+      contraseña: document.getElementById("contraseña").value,
+    }
+    enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_empleado);
 
-    id = document.getElementById("id_empleado").value;
-    nomempleado = document.getElementById("nombre").value;
-    direccion = document.getElementById("direccion").value;
-    email = document.getElementById("email").value;
-    contraseña = document.getElementById("contraseña").value;
-
-
-    console.log("ID: " + id + ", nombre: "+ nomempleado + ", direccion: " + direccion +  ", email : "+ email + ", contraseña : " + contraseña);
-
-    alert("exitoso")
 
     document.querySelector(".formulario-empleado").reset();
 

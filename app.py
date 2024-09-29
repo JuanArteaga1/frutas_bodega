@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 app = Flask(__name__)
-
-# Cambia el nombre del endpoint a '/agregar_fruta'
-@app.route('/agregar_fruta', methods=['POST'])
+@app.route('/administrar_datos', methods=['POST'])
 def receive_product():
     data = request.json  # Obtén los datos en formato JSON
     print(f"Datos recibidos: {data}")
