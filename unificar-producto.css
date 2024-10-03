@@ -1,0 +1,115 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif; /* Tipografía */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+    background-color: #f4f4f4; /* Color de fondo */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima para empujar el pie de página al fondo */
+}
+
+/* Estilos para el menú */
+.navbar {
+    background-color: #4CAF50; /* Color de fondo del menú */
+    padding: 15px 0; /* Espaciado superior e inferior */
+}
+
+.menu {
+    list-style-type: none; /* Quitar viñetas de la lista */
+    text-align: center; /* Centrar el menú */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+}
+
+.menu li {
+    display: inline; /* Mostrar elementos en línea */
+    margin: 0 20px; /* Espaciado entre los elementos */
+}
+
+.menu a {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+    font-size: 1.2em; /* Aumentar tamaño de fuente */
+    transition: color 0.3s; /* Efecto de transición */
+}
+
+.menu a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 900px; /* Ancho máximo del contenedor */
+    margin: 30px auto; /* Centrando el contenedor */
+    padding: 30px; /* Espaciado interno */
+    background-color: white; /* Color de fondo del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+    flex: 1; /* Hace que el contenedor crezca para ocupar espacio disponible */
+}
+
+/* Estilos para el título y descripción */
+.header {
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 30px; /* Espaciado inferior */
+}
+
+.header h1 {
+    color: #333; /* Color del título */
+    font-size: 2.5em; /* Aumentar tamaño del título */
+}
+
+.header p {
+    color: #666; /* Color de la descripción */
+    font-size: 1.3em; /* Aumentar tamaño de la descripción */
+}
+
+/* Estilos para los botones */
+.buttons {
+    display: flex; /* Usar Flexbox para los botones */
+    justify-content: space-evenly; /* Distribuir el espacio entre los botones */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+.button-container {
+    flex: 1; /* Hacer que los contenedores de los botones crezcan igualmente */
+    margin: 0 15px; /* Espaciado entre botones */
+}
+
+.button-container a {
+    display: flex; /* Usar Flexbox para el contenido del botón */
+    flex-direction: column; /* Colocar icono y texto verticalmente */
+    align-items: center; /* Centrar el contenido */
+    padding: 30px; /* Espaciado interno */
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s; /* Efecto de transición */
+    font-size: 1.3em; /* Aumentar tamaño de fuente en botones */
+    height: 150px; /* Altura fija para todos los botones */
+}
+
+.button-container a:hover {
+    background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilos para los iconos de los botones */
+.button-container img {
+    width: 50px; /* Aumentar ancho del icono */
+    height: 50px; /* Aumentar alto del icono */
+    margin-bottom: 15px; /* Espaciado inferior del icono */
+}
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center; /* Centrar el texto */
+    padding: 15px; /* Espaciado interno */
+    background-color: #4CAF50; /* Color de fondo del pie de página */
+    color: white; /* Color del texto */
+    position: relative; /* Posición relativa para el pie de página */
+    width: 100%; /* Ancho completo */
+    font-size: 1.3em; /* Aumentar tamaño de fuente en el pie de página */
+}

@@ -1,0 +1,124 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('img/fondotest0.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contenido {
+    flex: 1;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.205);
+    border-radius: 10px;
+    margin: 30px;
+    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+}
+
+h1, h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Flexbox para los formularios */
+.formularios {
+    display: flex;
+    justify-content: space-around; /* Espacio entre los formularios */
+    margin-bottom: 20px;
+}
+
+.formulario-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%; /* Ajuste del ancho del contenedor */
+}
+
+.formulario-actualizar, .formulario-eliminar {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.boton-actualizar,
+.boton-eliminar {
+    background-color: #665f6c;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.boton-actualizar:hover,
+.boton-eliminar:hover {
+    background-color: #332f35;
+}
+
+.enlace-regreso {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.enlace-agregar {
+    text-decoration: none;
+    color: #f2d30c;
+    font-size: 18px;
+}
+
+.enlace-agregar:hover {
+    text-decoration: underline;
+}
+
+footer {
+    width: 100%;
+    background-color: #332f35;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Cambiar a relativo para que esté en el flujo del documento */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Opcional: para un efecto de movimiento */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
