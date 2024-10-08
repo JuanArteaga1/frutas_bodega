@@ -41,6 +41,7 @@ function capturaSacar(){
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida);
 }
+document.querySelector(".formulario-sacar").reset();
 //capturar datos del formulario proveedor
 function capturarProveedor(){
 const datos_proveedor = {
@@ -73,3 +74,41 @@ function capturarEmpleado(){
   document.querySelector(".formulario-empleado").reset();
 
 }
+
+function capturar_eliminar_producto(){
+  const datos_eliminar_producto = {
+    tipo: "eliminarproducto",
+    id_producto_eliminar: document.getElementById("id_producto_eliminar").value,
+    nombre_eliminar: document.getElementById("nombre_eliminar").value,
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_producto);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
+
+
+function capturar_actualizar_producto(){
+  const datos_actualizar_producto = {
+    tipo: "actulizar_producto",
+    
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_producto);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
+function capturar_eliminar_proveedor(){
+  const datos_eliminar_proveedor = {
+    tipo: "actualizar_proveedores",
+    
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_proveedor);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
+
