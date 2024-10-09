@@ -3,7 +3,8 @@ body {
     font-family: Arial, sans-serif; /* Tipografía */
     margin: 0; /* Sin margen */
     padding: 0; /* Sin padding */
-    background-color: #f4f4f4; /* Color de fondo */
+    background: url('img/fondotest0.png') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Altura mínima para empujar el pie de página al fondo */
@@ -44,7 +45,7 @@ body {
     max-width: 900px; /* Ancho máximo del contenedor */
     margin: 30px auto; /* Centrando el contenedor */
     padding: 30px; /* Espaciado interno */
-    background-color: white; /* Color de fondo del contenedor */
+    background-color: rgba(255, 255, 255, 0.175); /* Color de fondo del contenedor con opacidad */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); /* Sombra */
     flex: 1; /* Hace que el contenedor crezca para ocupar espacio disponible */
@@ -52,17 +53,17 @@ body {
 
 /* Estilos para el título y descripción */
 .header {
+    color: white; /* Cambiar color a blanco */
     text-align: center; /* Centrar el texto */
     margin-bottom: 30px; /* Espaciado inferior */
 }
 
 .header h1 {
-    color: #333; /* Color del título */
     font-size: 2.5em; /* Aumentar tamaño del título */
 }
 
 .header p {
-    color: #666; /* Color de la descripción */
+    color: #ddd; /* Color de la descripción más claro para contraste */
     font-size: 1.3em; /* Aumentar tamaño de la descripción */
 }
 
@@ -83,7 +84,7 @@ body {
     flex-direction: column; /* Colocar icono y texto verticalmente */
     align-items: center; /* Centrar el contenido */
     padding: 30px; /* Espaciado interno */
-    background-color: #4CAF50; /* Color de fondo del botón */
+    background-color: #4caf4fad; /* Color de fondo del botón */
     color: white; /* Color del texto */
     border-radius: 5px; /* Bordes redondeados */
     text-decoration: none; /* Sin subrayado */
