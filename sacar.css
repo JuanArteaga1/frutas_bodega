@@ -146,7 +146,7 @@ h1::before {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-.formulario-producto {
+.formulario-sacar {
     width: 50%;
     background-color: #f9f9f9;
     padding: 20px;
