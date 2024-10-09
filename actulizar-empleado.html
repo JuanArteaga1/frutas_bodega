@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="actualizar-eliminar.css">
+    <title>Actualizar y Eliminar Proveedor</title>
+</head>
+<body>
+    <main class="contenido">
+        <h1>ACTUALIZAR Y ELIMINAR PROVEEDOR</h1>
+
+        <div class="formularios">
+            <div class="formulario-container">
+                <h2>Actualizar Información del Proveedor</h2>
+                <form class="formulario-actualizar">
+                    <label for="id_producto_actualizar">ID del Proveedor</label>
+                    <input type="number" id="id_producto_actualizar" placeholder="Ingrese el ID del proveedor" required>
+
+                    <label for="nombre_actualizar">Nombre del Proveedor</label>
+                    <input type="text" id="nombre_actualizar" placeholder="Ingrese el nombre del proveedor" required>
+
+                    <label for="cantidad_actualizar">Numero de telefono</label>
+                    <input type="number" id="cantidad_actualizar" placeholder="Ingrese el numero del telefono" required>
+
+                    <label for="cantidad_actualizar">Direccion</label>
+                    <input type="number" id="cantidad_actualizar" placeholder="Ingrese la Direccion" required>
+
+                    <button type="button" class="boton-actualizar">Actualizar</button>
+                </form>
+            </div>
+
+            <div class="formulario-container">
+                <h2>Eliminar Proveedor</h2>
+                <form class="formulario-eliminar">
+                    <label for="id_producto_eliminar">ID del Proveedor</label>
+                    <input type="number" id="id_producto_eliminar" placeholder="Ingrese el ID del producto" required>
+
+                    <label for="nombre_eliminar">Nombre del Proveedor</label>
+                    <input type="text" id="nombre_eliminar" placeholder="Ingrese el nombre del producto" required>
+
+                    <button type="button" class="boton-eliminar">Eliminar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="enlace-regreso">
+            <a href="gestionar-proveedor.html" class="enlace-agregar">Volver a Gestionar Proveedores</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Bodega La Quindianita</p>
+    </footer>
+</body>
+</html>
