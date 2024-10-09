@@ -78,8 +78,7 @@ function capturarEmpleado(){
 function capturar_eliminar_producto(){
   const datos_eliminar_producto = {
     tipo: "eliminarproducto",
-    id_producto_eliminar: document.getElementById("id_producto_eliminar").value,
-    nombre_eliminar: document.getElementById("nombre_eliminar").value,
+
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_producto);
 
@@ -102,7 +101,7 @@ function capturar_actualizar_producto(){
 }
 function capturar_eliminar_proveedor(){
   const datos_eliminar_proveedor = {
-    tipo: "actualizar_proveedores",
+    tipo: "eliminar_proveedores",
     
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_proveedor);
@@ -112,3 +111,36 @@ function capturar_eliminar_proveedor(){
 
 }
 
+function capturar_actualizar_proveedor(){
+  const datos_actualizar_proveedor = {
+    tipo: "actualizar_proveedores",
+    
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_proveedor);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
+function capturar_eliminar_empleado(){
+  const datos_eliminar_empleado = {
+    tipo: "actualizar_empleado",
+    
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_empleado);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
+function capturar_actualizar_empleado(){
+  const datos_actualizar_empleado = {
+    tipo: "actualizar_empleado",
+    
+  }
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_empleado);
+
+
+  document.querySelector(".formulario-eliminar").reset();
+
+}
