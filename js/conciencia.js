@@ -75,72 +75,98 @@ function capturarEmpleado(){
 
 }
 
-function capturar_eliminar_producto(){
+function capturar_eliminar_producto() {
   const datos_eliminar_producto = {
     tipo: "eliminarproducto",
-
+    id_producto: document.getElementById("id_producto_eliminar1").value,
+    nombre_producto: document.getElementById("nombre_eliminar1").value
   }
+  
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_producto);
 
-
+  // Resetea el formulario después de enviar los datos
   document.querySelector(".formulario-eliminar").reset();
-
 }
 
 
-function capturar_actualizar_producto(){
+
+function capturar_actualizar_producto() {
   const datos_actualizar_producto = {
-    tipo: "actulizar_producto",
-    
+    tipo: "actualizar_producto",
+    id_producto: document.getElementById("id_producto_actualizar1").value,
+    nombre_producto: document.getElementById("nombre_actualizar1").value,
+    origen_producto: document.getElementById("origen_actualizar1").value,
+    precio_producto: document.getElementById("precio_actualizar1").value,
+    cantidad_producto: document.getElementById("cantidad_actualizar1").value
   }
+  
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_producto);
 
-
-  document.querySelector(".formulario-eliminar").reset();
-
+  // Resetea el formulario después de enviar los datos
+  document.querySelector(".formulario-actualizar").reset();
 }
-function capturar_eliminar_proveedor(){
+
+
+function capturar_eliminar_proveedor() {
   const datos_eliminar_proveedor = {
-    tipo: "eliminar_proveedores",
-    
-  }
+      tipo: "eliminar_proveedor",
+      id_proveedor: document.getElementById("id_proveedor_eliminar").value,
+      nombre_proveedor: document.getElementById("nombre_proveedor_eliminar").value
+  };
+
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_proveedor);
 
-
+  // Resetea el formulario después de enviar los datos
   document.querySelector(".formulario-eliminar").reset();
-
 }
 
-function capturar_actualizar_proveedor(){
+
+
+
+function capturar_actualizar_proveedor() {
   const datos_actualizar_proveedor = {
     tipo: "actualizar_proveedores",
-    
+    id_proveedor: document.getElementById("id_proveedor_actualizar").value,
+    nombre_proveedor: document.getElementById("nombre_proveedor_actualizar").value,
+    telefono_proveedor: document.getElementById("telefono_proveedor_actualizar").value,
+    direccion_proveedor: document.getElementById("direccion_proveedor_actualizar").value,
+    email_proveedor: document.getElementById("email_proveedor_actualizar").value
   }
+
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_proveedor);
 
-
-  document.querySelector(".formulario-eliminar").reset();
-
+  // Resetea el formulario después de enviar los datos
+  document.querySelector(".formulario-actualizar").reset();
 }
-function capturar_eliminar_empleado(){
+
+function capturar_eliminar_empleado() {
   const datos_eliminar_empleado = {
-    tipo: "actualizar_empleado",
-    
+    tipo: "eliminar_empleado",
+    id_empleado: document.getElementById("id_producto_eliminar").value,
+    nombre_empleado: document.getElementById("nombre_eliminar").value
   }
+  
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_empleado);
 
-
+  // Resetea el formulario después de enviar los datos
   document.querySelector(".formulario-eliminar").reset();
-
 }
-function capturar_actualizar_empleado(){
+
+
+function capturar_actualizar_empleado() {
   const datos_actualizar_empleado = {
     tipo: "actualizar_empleado",
-    
+    id_empleado: document.getElementById("id_empleado_actualizar").value,
+    nombre: document.getElementById("nombre_actualizar").value,
+    apellido: document.getElementById("apellido_actualizar").value,
+    direccion: document.getElementById("direccion_actualizar").value,
+    email: document.getElementById("email_actualizar").value,
+    telefono: document.getElementById("telefono_actualizar").value
   }
+  
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_empleado);
 
-
-  document.querySelector(".formulario-eliminar").reset();
-
+  // Resetea el formulario después de enviar los datos
+  document.querySelector(".formulario-actualizar").reset();
 }
+

@@ -140,7 +140,7 @@ def agregar_empleado(datos):
     email = str(datos.get('email'))
     telefono = str(datos.get('telefono'))
     contraseña_empleado = str(datos.get('contraseña'))# Captura la contraseña desde el formulario
-    cursor.execute("SELECT id_empleado FROM empleados WHERE id_empleado = %s", (identificacion,))
+    cursor.execute("SELECT id_empleados FROM empleados WHERE id_empleados = %s", (identificacion,))
     empleado_existente = cursor.fetchone()
     if empleado_existente == None:  
         cursor.execute("""
