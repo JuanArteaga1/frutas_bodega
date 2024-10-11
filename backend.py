@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Configuración de la base de datos MySQL
 bd = mysql.connector.connect(
     user="root",
-    password="123456",
+    password="133724",
     host="localhost",
     database="administracion_bodega"
 )
@@ -14,38 +14,44 @@ cursor = bd.cursor()
 # Ruta para agregar frutas
 @app.route('/administrar_datos', methods=['POST'])
 def administrar_datos_endpoint():
-    print("datos")
     datos = request.json
+
+    #gestionar producto
     if datos.get('tipo') == 'entrada':
         agregar_fruta(datos) 
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
-    elif datos.get('tipo') == 'proveedor':
-        agregar_proveedor(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
-    elif datos.get('tipo') == 'empleado':
-        agregar_empleado(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
-    elif datos.get('tipo') == 'salida':
-        sacar_frutas(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
+        return jsonify({"status": "agregar producto"}), 200 
     elif datos.get('tipo') == 'eliminar_producto':
         eliminarproducto(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
-    elif datos.get('tipo') == 'actulizar_producto':
+        return jsonify({"status": "eliminar producto"}), 200 
+    elif datos.get('tipo') == 'actualizar_producto':
         actualizar_producto(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
+        return jsonify({"status": "actualizar producto"}), 200
+    elif datos.get('tipo') == 'salida':
+        sacar_frutas(datos)
+        return jsonify({"status": "sacar prodcuto"}), 200
+
+
+    #gestionar proveedor
+    elif datos.get('tipo') == 'proveedor':
+        agregar_proveedor(datos)
+        return jsonify({"status": "agregar proveedor"}), 200 
     elif datos.get('tipo') == 'actualizar_proveedores':
         actualizar_proveedor(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200
+        return jsonify({"status": "actualizar proveedor"}), 200
     elif datos.get('tipo') == 'eliminar_proveedor':
         eliminar_proveedor(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200
+        return jsonify({"status": "eliminar proveedor"}), 200
+    
+    #gestionar empleado
+    elif datos.get('tipo') == 'empleado':
+        agregar_empleado(datos)
+        return jsonify({"status": "agregar empleado"}), 200 
     elif datos.get('tipo') == 'actualizar_empleado':
         actualizar_empleado(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200
+        return jsonify({"status": "actializar empleado"}), 200
     elif datos.get('tipo') == 'eliminar_empleado':
         eliminar_empleado(datos)
-        return jsonify({"status": "Fruta agregada con éxito"}), 200 
+        return jsonify({"status": "eliminar empleado"}), 200 
 def sacar_frutas(datos):
     id_producto = int(datos.get('id_producto'))
     cantidad_a_sacar = int(datos.get('cantidad'))
@@ -214,4 +220,5 @@ def actualizar_empleado(datos):
 
 if __name__ == '__main__':
     app.run(debug=True) # Inicia la aplicación Flask en modo de depuración
+    
     
