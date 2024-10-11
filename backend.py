@@ -28,7 +28,7 @@ def administrar_datos_endpoint():
     elif datos.get('tipo') == 'salida':
         sacar_frutas(datos)
         return jsonify({"status": "Fruta agregada con éxito"}), 200 
-    elif datos.get('tipo') == 'eliminarproducto':
+    elif datos.get('tipo') == 'eliminar_producto':
         eliminarproducto(datos)
         return jsonify({"status": "Fruta agregada con éxito"}), 200 
     elif datos.get('tipo') == 'actulizar_producto':

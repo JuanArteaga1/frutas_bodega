@@ -1,3 +1,5 @@
+//este en mi archivos conciencia.js que esta una carperta que se llama js. js/conciencia.js//
+
 function enviarDatosAlServidor(url, datos) {
   fetch(url, {
       method: 'POST',  // Método HTTP POST para enviar datos
@@ -41,7 +43,9 @@ function capturaSacar(){
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida);
 }
+
 document.querySelector(".formulario-sacar").reset();
+
 //capturar datos del formulario proveedor
 function capturarProveedor(){
 const datos_proveedor = {
@@ -75,35 +79,33 @@ function capturarEmpleado(){
 
 }
 
-function capturar_eliminar_producto() {
-  const datos_eliminar_producto = {
-    tipo: "eliminarproducto",
-    id_producto: document.getElementById("id_producto_eliminar1").value,
-    nombre_producto: document.getElementById("nombre_eliminar1").value
-  }
+// Función para eliminar producto
+function capturaEliminar() {
+  const datos_eliminar = {
+      tipo: 'eliminar_producto',
+      id_producto: document.getElementById("id_producto_eliminar1").value,
+      nombre: document.getElementById("nombre_eliminar1").value
+  };
   
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_producto);
-
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-eliminar").reset();
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar);
+  alert('Producto eliminado con éxito.'); // Alerta de éxito
+  document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
 
-
-
-function capturar_actualizar_producto() {
-  const datos_actualizar_producto = {
-    tipo: "actualizar_producto",
-    id_producto: document.getElementById("id_producto_actualizar1").value,
-    nombre_producto: document.getElementById("nombre_actualizar1").value,
-    origen_producto: document.getElementById("origen_actualizar1").value,
-    precio_producto: document.getElementById("precio_actualizar1").value,
-    cantidad_producto: document.getElementById("cantidad_actualizar1").value
-  }
+// Función para actualizar producto
+function capturaActualizar() {
+  const datos_actualizar = {
+      tipo: 'actualizar_producto', // Corrige 'actulizar' a 'actualizar'
+      id_producto: document.getElementById("id_producto_actualizar1").value,
+      nombre: document.getElementById("nombre_actualizar1").value,
+      origen: document.getElementById("origen_actualizar1").value,
+      precio: document.getElementById("precio_actualizar1").value,
+      cantidad: document.getElementById("cantidad_actualizar1").value
+  };
   
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_producto);
-
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-actualizar").reset();
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar);
+  alert('Información del producto actualizada con éxito.'); // Alerta de éxito
+  document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
 
 
@@ -119,8 +121,6 @@ function capturar_eliminar_proveedor() {
   // Resetea el formulario después de enviar los datos
   document.querySelector(".formulario-eliminar").reset();
 }
-
-
 
 
 function capturar_actualizar_proveedor() {

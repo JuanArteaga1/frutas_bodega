@@ -13,7 +13,7 @@
         <div class="formularios">
             <div class="formulario-container">
                 <h2>Actualizar Información del Producto</h2>
-                <form class="formulario-actualizar" onsubmit="capturar_actualizacion_producto(); return false;">
+                <form class="formulario-actualizar" onsubmit="return false;">
                     <label for="id_producto_actualizar1">ID del Producto</label>
                     <input type="number" id="id_producto_actualizar1" placeholder="Ingrese el ID del producto" required>
 
@@ -29,20 +29,20 @@
                     <label for="cantidad_actualizar1">Cantidad del Producto</label>
                     <input type="number" id="cantidad_actualizar1" placeholder="Ingrese la cantidad del producto" required>
 
-                    <button type="submit" class="boton-actualizar">Actualizar</button>
+                    <button type="button" id="btn_actualizar" class="boton-actualizar" onclick="capturaActualizar()">Actualizar</button>
                 </form>
             </div>
 
             <div class="formulario-container">
                 <h2>Eliminar Producto</h2>
-                <form class="formulario-eliminar" onsubmit="capturar_eliminar_producto(); return false;">
-                    <label for="id_producto_eliminar">ID del Producto</label>
+                <form class="formulario-eliminar" onsubmit="return false;">
+                    <label for="id_producto_eliminar1">ID del Producto</label>
                     <input type="number" id="id_producto_eliminar1" placeholder="Ingrese el ID del producto" required>
 
-                    <label for="nombre_eliminar">Nombre del Producto</label>
+                    <label for="nombre_eliminar1">Nombre del Producto</label>
                     <input type="text" id="nombre_eliminar1" placeholder="Ingrese el nombre del producto" required>
 
-                    <button type="submit" class="boton-eliminar">Eliminar</button>
+                    <button type="button" id="btn_eliminar" class="boton-eliminar" onclick="capturaEliminar()">Eliminar</button>
                 </form>
             </div>
         </div>
@@ -55,5 +55,9 @@
     <footer>
         <p>© 2024 Bodega La Quindianita</p>
     </footer>
+
+    <!-- Importar el archivo JS desde la carpeta js -->
+    <script src="js/conciencia.js"></script>
+
 </body>
 </html>
