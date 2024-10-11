@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="actualizar-eliminar.css">
+    <script src="js/conciencia.js" defer></script>
     <title>Actualizar y Eliminar Empleados</title>
 </head>
 <body>
@@ -45,6 +46,8 @@
                     <label for="nombre_empleado_eliminar1">Nombre del Empleado</label>
                     <input type="text" id="nombre_empleado_eliminar1" placeholder="Ingrese el nombre del empleado" required>
 
+                    <h1>Datos de la Bodega</h1>
+                    <pre id="data"></pre>
                     <button type="button" class="boton-eliminar" onclick="capturarEliminarEmpleado()">Eliminar</button>
                 </form>
             </div>

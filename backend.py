@@ -1,6 +1,8 @@
 import mysql.connector
+import pandas as pd
 from datetime import datetime
 from flask import Flask, request, jsonify
+
 # Configuración de la aplicación Flask
 app = Flask(__name__)
 # Configuración de la base de datos MySQL
@@ -37,9 +39,11 @@ def administrar_datos_endpoint():
         agregar_proveedor(datos)
         return jsonify({"status": "agregar proveedor"}), 200 
     elif datos.get('tipo') == 'actualizar_proveedores':
+        print("hola")
         actualizar_proveedor(datos)
         return jsonify({"status": "actualizar proveedor"}), 200
     elif datos.get('tipo') == 'eliminar_proveedor':
+        print("hola1")
         eliminar_proveedor(datos)
         return jsonify({"status": "eliminar proveedor"}), 200
     
@@ -52,7 +56,11 @@ def administrar_datos_endpoint():
         return jsonify({"status": "actializar empleado"}), 200
     elif datos.get('tipo') == 'eliminar_empleado':
         eliminar_empleado(datos)
-        return jsonify({"status": "eliminar empleado"}), 200 
+        return jsonify({"status": "eliminar empleado"}), 200
+
+    elif datos.get('tipo') == 'inicio secion':
+        resul = inicio_seccion(datos)
+        return jsonify({"status": resul}), 200   
 def sacar_frutas(datos):
     id_producto = int(datos.get('id_producto'))
     cantidad_a_sacar = int(datos.get('cantidad'))
@@ -160,7 +168,7 @@ def eliminar_proveedor(datos):
     cursor.execute("SELECT id_proveedores FROM proveedores WHERE id_proveedores = %s", (identificacion,))
     proveedor_existente = cursor.fetchone()
     if proveedor_existente:
-        cursor.execute("DELETE FROM proveedores WHERE id_producto = %s", (identificacion,))
+        cursor.execute("DELETE FROM proveedores WHERE id_proveedores = %s", (identificacion,))
         bd.commit()
 def eliminar_empleado(datos):
     identificacion =int(datos.get('id_empleado'))
@@ -213,6 +221,31 @@ def actualizar_empleado(datos):
     if empleado_existente:
         cursor.execute("""UPDATE empleados SET nombre = %s, apellido = %s, email = %s, telefono = %s, direccion = %s  WHERE id_empleados = %s""", (nombre_empleado, apellido, email, telefono, direccion, identificacion))
         bd.commit() 
+def inicio_seccion(datos):
+    identificacion = str(datos.get('identificacion'))
+    contraseña_empleado = (datos.get('contraseña'))
+    cursor.execute("SELECT id_empleados,contraseña FROM empleados WHERE id_empleados = %s and contraseña = %s", (identificacion, contraseña_empleado,))
+    empleado_existente = cursor.fetchone()
+    if empleado_existente:
+        return True
+    else:
+        return False
+    
+# Ruta para obtener los nombres y apellidos de los empleados
+@app.route('/nombre_empleados', methods=['POST'])
+def nombre_empleados():
+    cursor.execute("select nombre, apellido from empleados")
+    resultados = cursor.fetchall()
+    columnas = [i[0] for i in cursor.description]
+    df =  pd.DataFrame(resultados, columns=columnas)
+    nombre_apellidos = df.to_dict(orient='records')
+    for item in nombre_apellidos:
+        nombre = item['nombre']
+        apellido = item['apellido']
+        print(f'nombre: {nombre}, apellido: {apellido}')
+    cursor.close()
+    return jsonify(nombre_apellidos)
+    
 
 
 
