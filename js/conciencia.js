@@ -108,65 +108,68 @@ function capturaActualizar() {
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
 
-
-function capturar_eliminar_proveedor() {
-  const datos_eliminar_proveedor = {
-      tipo: "eliminar_proveedor",
-      id_proveedor: document.getElementById("id_proveedor_eliminar").value,
-      nombre_proveedor: document.getElementById("nombre_proveedor_eliminar").value
+//funcion para eliminar proveedor
+function capturarEliminarProveedor() {
+  const datos_eliminar = {
+      tipo: 'eliminar_proveedor',
+      id_proveedor: document.getElementById("id_proveedor_eliminar1").value, 
+      nombre: document.getElementById("nombre_proveedor_eliminar1").value 
   };
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_proveedor);
-
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-eliminar").reset();
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_proveedor', datos_eliminar);
+  alert('Proveedor eliminado con éxito.');
+  document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
 
 
-function capturar_actualizar_proveedor() {
-  const datos_actualizar_proveedor = {
-    tipo: "actualizar_proveedores",
-    id_proveedor: document.getElementById("id_proveedor_actualizar").value,
-    nombre_proveedor: document.getElementById("nombre_proveedor_actualizar").value,
-    telefono_proveedor: document.getElementById("telefono_proveedor_actualizar").value,
-    direccion_proveedor: document.getElementById("direccion_proveedor_actualizar").value,
-    email_proveedor: document.getElementById("email_proveedor_actualizar").value
-  }
+//funcion para actulizar proveedor 
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_proveedor);
+function capturarActualizarProveedor() {
+  const datos_actualizar = {
+      tipo: 'actualizar_proveedores',
+      id_proveedor: document.getElementById("id_proveedor_actualizar1").value, 
+      nombre: document.getElementById("nombre_proveedor_actualizar1").value, 
+      telefono: document.getElementById("telefono_proveedor_actualizar1").value, 
+      direccion: document.getElementById("direccion_proveedor_actualizar1").value, 
+      email: document.getElementById("email_proveedor_actualizar1").value 
+  };
 
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-actualizar").reset();
-}
-
-function capturar_eliminar_empleado() {
-  const datos_eliminar_empleado = {
-    tipo: "eliminar_empleado",
-    id_empleado: document.getElementById("id_producto_eliminar").value,
-    nombre_empleado: document.getElementById("nombre_eliminar").value
-  }
-  
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar_empleado);
-
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-eliminar").reset();
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_proveedor', datos_actualizar);
+  alert('Información del proveedor actualizada con éxito.');
+  document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
 
 
-function capturar_actualizar_empleado() {
-  const datos_actualizar_empleado = {
-    tipo: "actualizar_empleado",
-    id_empleado: document.getElementById("id_empleado_actualizar").value,
-    nombre: document.getElementById("nombre_actualizar").value,
-    apellido: document.getElementById("apellido_actualizar").value,
-    direccion: document.getElementById("direccion_actualizar").value,
-    email: document.getElementById("email_actualizar").value,
-    telefono: document.getElementById("telefono_actualizar").value
-  }
-  
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar_empleado);
+// Función para eliminar empleado
 
-  // Resetea el formulario después de enviar los datos
-  document.querySelector(".formulario-actualizar").reset();
+function capturarEliminarEmpleado() {
+  const datos_eliminar = {
+      tipo: 'eliminar_empleado',
+      id_empleado: document.getElementById("id_empleado_eliminar1").value, 
+      nombre: document.getElementById("nombre_empleado_eliminar1").value 
+  };
+
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_empleado', datos_eliminar);
+  alert('Empleado eliminado con éxito.');
+  document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
+
+// Función para actualizar empleado
+
+function capturarActualizarEmpleado() {
+  const datos_actualizar = {
+      tipo: 'actualizar_empleado',
+      id_empleado: document.getElementById("id_empleado_actualizar1").value, 
+      nombre: document.getElementById("nombre_empleado_actualizar1").value, 
+      apellido: document.getElementById("apellido_empleado_actualizar1").value, 
+      direccion: document.getElementById("direccion_empleado_actualizar1").value, 
+      email: document.getElementById("email_empleado_actualizar1").value, 
+      telefono: document.getElementById("telefono_empleado_actualizar1").value 
+  };
+
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_empleado', datos_actualizar);
+  alert('Información del empleado actualizada con éxito.');
+  document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
+}
+
 

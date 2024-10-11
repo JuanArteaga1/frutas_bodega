@@ -11,10 +11,11 @@ bd = mysql.connector.connect(
     database="administracion_bodega"
 )
 cursor = bd.cursor()
+
 # Ruta para agregar frutas
 @app.route('/administrar_datos', methods=['POST'])
 def administrar_datos_endpoint():
-    datos = request.json
+    datos = request.json    
 
     #gestionar producto
     if datos.get('tipo') == 'entrada':
