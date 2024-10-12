@@ -60,10 +60,10 @@ enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_proveedor
 
 }
 
-//capturar datos del formulario empleado
-function capturarEmpleado(){
+// Capturar datos del formulario empleado
+function capturarEmpleado() {
   const datos_empleado = {
-    tipo: "empleado",
+    tipo: document.getElementById("tipo_usuario_empleado").value, // Obtener el tipo de usuario
     id_empleado: document.getElementById("id_empleado").value,
     nombre: document.getElementById("nombre").value,
     apellido: document.getElementById("apellido").value,
@@ -74,10 +74,9 @@ function capturarEmpleado(){
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_empleado);
 
-
   document.querySelector(".formulario-empleado").reset();
-
 }
+
 
 // Función para eliminar producto
 function capturaEliminar() {

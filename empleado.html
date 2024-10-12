@@ -14,6 +14,7 @@
                 <li><a href="unificar-producto.html">Gestionar Productos</a></li>
                 <li><a href="proveedor.html">Agregar Proveedor</a></li>
                 <li><a href="generar.html">Generación de QR</a></li>
+                <li><a href="gestionar-empleado.html">Gestionar Empleados</a></li>
                 <li><a href="home.html">Salir</a></li>
             </ul>
         </nav>
@@ -21,15 +22,22 @@
             <h1>AGREGAR EMPLEADO</h1>
             <div class="formulario-container">
                 <form class="formulario-empleado" onsubmit="capturarEmpleado(); return false;">
+                    <label for="tipo_usuario_empleado">Tipo de Usuario</label>
+                    <select id="tipo_usuario_empleado" required>
+                        <option value="" disabled selected>Seleccione una opción</option>
+                        <option value="empleado">Empleado</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
+                
                     <label for="id_empleado">ID del Empleado</label>
                     <input type="text" id="id_empleado" placeholder="Ingrese el ID del empleado" required pattern="\d+" title="Solo se permiten números">
                     
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" placeholder="Ingrese el nombre del empleado" required pattern="[A-Za-z\s]+" title="Solo se permiten letras y espacios">
                     
-                    <label for="email">apellido</label>
-                    <input type="apellido" id="apellido" placeholder="Ingrese el apellido" required> 
-
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" placeholder="Ingrese el apellido" required> 
+                
                     <label for="direccion">Dirección</label>
                     <input type="text" id="direccion" placeholder="Ingrese la dirección del empleado" required>
                     
@@ -38,12 +46,13 @@
                     
                     <label for="telefono">Teléfono</label>
                     <input type="tel" id="telefono" placeholder="Ingrese el teléfono" required>
-
+                
                     <label for="contraseña">Contraseña</label>
                     <input type="password" id="contraseña" placeholder="Ingrese la contraseña" required minlength="6" title="La contraseña debe tener al menos 6 caracteres">
                     
                     <button type="submit" class="boton-crear">Crear Cuenta</button>
                 </form>
+                
 
                 <img src="img/pic_emp.png" alt="Empleado" class="imagen-empleado">
             </div>

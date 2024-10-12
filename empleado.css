@@ -38,15 +38,14 @@ body {
 
 .menu {
     position: relative;
-    width: 300px;
+    width: 300px; /* Mantén el ancho del menú */
     background-color: #665f6c;
     padding: 20px;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
     animation: fadeIn 1.5s ease-in-out;
 }
 
@@ -168,7 +167,8 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="password"] {
+input[type="password"],
+select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
