@@ -17,24 +17,25 @@
                 <form class="formulario-actualizar">
                     <label for="id_empleado_actualizar1">ID del Empleado</label>
                     <input type="number" id="id_empleado_actualizar1" placeholder="Ingrese el ID del empleado" required>
-                
+                    
                     <label for="nombre_empleado_actualizar1">Nombre del Empleado</label>
-                    <input type="text" id="nombre_empleado_actualizar1" placeholder="Ingrese el nombre del empleado" required>
-                
+                    <input type="text" id="nombre_empleado_actualizar1" placeholder="Ingrese el nombre del empleado" pattern="[A-Za-z0-9\s\W]+" required>
+                    
                     <label for="apellido_empleado_actualizar1">Apellido del Empleado</label>
-                    <input type="text" id="apellido_empleado_actualizar1" placeholder="Ingrese el apellido del empleado" required>
-                
+                    <input type="text" id="apellido_empleado_actualizar1" placeholder="Ingrese el apellido del empleado" pattern="[A-Za-z0-9\s\W]+" required>
+                    
                     <label for="direccion_empleado_actualizar1">Dirección</label>
-                    <input type="text" id="direccion_empleado_actualizar1" placeholder="Ingrese la dirección" required>
-                
+                    <input type="text" id="direccion_empleado_actualizar1" placeholder="Ingrese la dirección" pattern="[A-Za-z0-9\s\W]+" required>
+                    
                     <label for="email_empleado_actualizar1">Correo Electrónico</label>
                     <input type="email" id="email_empleado_actualizar1" placeholder="Ingrese el correo electrónico" required>
-                
+                    
                     <label for="telefono_empleado_actualizar1">Número de Teléfono</label>
                     <input type="tel" id="telefono_empleado_actualizar1" placeholder="Ingrese el número de teléfono" required>
-                
+                    
                     <button type="button" class="boton-actualizar" onclick="capturarActualizarEmpleado()">Actualizar</button>
                 </form>
+                
             </div>
 
             <div class="formulario-container">
@@ -44,7 +45,7 @@
                     <input type="number" id="id_empleado_eliminar1" placeholder="Ingrese el ID del empleado" required>
 
                     <label for="nombre_empleado_eliminar1">Nombre del Empleado</label>
-                    <input type="text" id="nombre_empleado_eliminar1" placeholder="Ingrese el nombre del empleado" required>
+                    <input type="text" id="nombre_empleado_eliminar1" placeholder="Ingrese el nombre del empleado" pattern="[A-Za-z0-9\s\W]+" required>
 
                     <h1>Datos de la Bodega</h1>
                     <pre id="data"></pre>

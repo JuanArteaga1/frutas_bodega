@@ -1,174 +1,116 @@
 /* Estilos generales */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Bebas Neue', sans-serif;
-    background: url('img/fondotest.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #6b73ff 0%, #2ef997 100%);
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    position: relative; /* Asegura que el overlay se posicione correctamente */
-}
-
-/* Animación de desvanecimiento */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Opcional: para un efecto de movimiento */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Fondo oscuro superpuesto */
-.overlay {
-    position: fixed; /* Cubre toda la pantalla */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 102, 255, 0.5); /* Capa de oscurecimiento con opacidad del 50% */
-    z-index: 1; /* Asegura que esté detrás del contenido principal */
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
-}
-
-/* Estilos para la barra lateral */
-.barra-lateral {
-    width: 300px;
-    background-color: #665f6c;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    text-align: center;
-    z-index: 2; /* Asegura que la barra esté por encima del overlay */
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
 }
 
-.barra-lateral h1 {
-    font-size: 28px;
-    margin: 20px 0;
-    line-height: 1.2;
-}
-
-/* Estilos para el contenido principal */
-.contenido {
-    margin-left: 300px;
-    width: calc(100% - 300px);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    position: relative; /* Asegura que el contenido esté encima del overlay */
-    z-index: 2; /* Asegura que el contenido esté por encima del overlay */
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
-}
-
-/* Estilos para el contenedor de inicio de sesión */
-.login-overlay {
-    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco semitransparente para el cuadro de fondo */
-    padding: 80px;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Asegura que esté por encima del overlay */
-    z-index: 3; /* Asegura que el contenedor de login esté por encima del overlay */
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
-}
-
-/* Estilos para el cuadro de inicio de sesión */
-.login {
-    width: 400px;
+/* Contenedor principal del formulario */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 40px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
     text-align: center;
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+    transition: transform 0.3s ease;
 }
 
-.login h2 {
+.form-container:hover {
+    transform: translateY(-10px);
+}
+
+/* Espacio para el logo */
+.logo-container {
     margin-bottom: 20px;
 }
 
-.login-img {
-    width: 80%;
+.logo {
+    max-width: 120px;
     height: auto;
-    margin-bottom: 20px;
 }
 
+/* Título del formulario */
+form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Grupo de inputs */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
+/* Etiquetas de los campos */
 .input-group label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    font-weight: bold;
+    color: #555;
 }
 
+/* Campos de entrada */
 .input-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
-a.btn {
-    display: block;
-    text-align: center;
+.input-group input:focus {
+    border-color: #6b73ff;
+    outline: none;
+}
+
+/* Estilos para los botones */
+.btn {
+    display: inline-block;
     width: 100%;
-    padding: 10px;
-    background-color: #665f6c;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 12px;
+    background-color: #6b73ff;
+    color: white;
+    border-radius: 8px;
     text-decoration: none;
     font-size: 16px;
-    margin-bottom: 10px;
-    animation: fadeIn 1.5s ease-in-out; /* Aplicar animación */
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px; /* Espaciado entre botones */
 }
 
-a.btn:hover {
-    background-color: #332f35;
+.btn:hover {
+    background-color: #5a62e6;
+    transform: translateY(-2px);
 }
 
-a.btn.salir-btn {
-    background-color: #665f6c;
+.salir-btn {
+    background-color: #ff5f5f;
 }
 
-a.btn.salir-btn:hover {
-    background-color: #332f35;
+.salir-btn:hover {
+    background-color: #e55656;
 }
 
-/* Estilos para el footer */
+/* Footer */
 footer {
-    width: 300px;
-    background-color: #332f35;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 2; /* Asegura que el footer esté por encima del overlay */
+    padding: 10px 0;
+    font-size: 14px;
 }
+

@@ -172,6 +172,25 @@ function capturarActualizarEmpleado() {
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
 
+function capturarDatosLogin() {
+  const datos_login = {
+      tipo: 'inicio_sesion',
+      usuario: document.getElementById("username").value,
+      contraseña: document.getElementById("password").value
+  };
+
+  // Aquí podrías enviar los datos al servidor si es necesario
+  enviarDatosAlServidor('http://127.0.0.1:5000/iniciar_sesion', datos_login);
+  
+  // Alertar al usuario (opcional)
+  alert('Datos capturados ');  // + JSON.stringify(datos_login) para visulizar los datos del formulario
+
+  // Limpiar el formulario después de capturar los datos
+  document.getElementById("login-form").reset();
+
+  // Redirigir a unificar-producto.html
+  window.location.href = 'unificar-producto.html';
+}
 
 
 

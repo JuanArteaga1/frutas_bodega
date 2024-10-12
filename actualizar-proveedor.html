@@ -16,21 +16,22 @@
                 <form class="formulario-actualizar">
                     <label for="id_proveedor_actualizar1">ID del Proveedor</label>
                     <input type="number" id="id_proveedor_actualizar1" placeholder="Ingrese el ID del proveedor" required>
-            
+                
                     <label for="nombre_proveedor_actualizar1">Nombre del Proveedor</label>
-                    <input type="text" id="nombre_proveedor_actualizar1" placeholder="Ingrese el nombre del proveedor" required>
-            
+                    <input type="text" id="nombre_proveedor_actualizar1" placeholder="Ingrese el nombre del proveedor" pattern="[A-Za-z0-9\s\W]+" required>
+                
                     <label for="telefono_proveedor_actualizar1">Número de Teléfono</label>
                     <input type="tel" id="telefono_proveedor_actualizar1" placeholder="Ingrese el número de teléfono" required>
-            
+                
                     <label for="direccion_proveedor_actualizar1">Dirección</label>
-                    <input type="text" id="direccion_proveedor_actualizar1" placeholder="Ingrese la dirección del proveedor" required>
-            
+                    <input type="text" id="direccion_proveedor_actualizar1" placeholder="Ingrese la dirección del proveedor" pattern="[A-Za-z0-9\s\W]+" required>
+                
                     <label for="email_proveedor_actualizar1">Correo Electrónico</label>
                     <input type="email" id="email_proveedor_actualizar1" placeholder="Ingrese el correo electrónico" required>
-            
+                
                     <button type="button" class="boton-actualizar" onclick="capturarActualizarProveedor()">Actualizar</button>
                 </form>
+                
             </div>            
 
             <div class="formulario-container">
@@ -40,7 +41,7 @@
                     <input type="number" id="id_proveedor_eliminar1" placeholder="Ingrese el ID del proveedor" required>
             
                     <label for="nombre_proveedor_eliminar1">Nombre del Proveedor</label>
-                    <input type="text" id="nombre_proveedor_eliminar1" placeholder="Ingrese el nombre del proveedor" required>
+                    <input type="text" id="nombre_proveedor_eliminar1" placeholder="Ingrese el nombre del proveedor" pattern="[A-Za-z0-9\s\W]+" required>
             
                     <button type="button" class="boton-eliminar" onclick="capturarEliminarProveedor()">Eliminar</button>
                 </form>
