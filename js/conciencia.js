@@ -63,7 +63,8 @@ enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_proveedor
 // Capturar datos del formulario empleado
 function capturarEmpleado() {
   const datos_empleado = {
-    tipo: document.getElementById("tipo_usuario_empleado").value, // Obtener el tipo de usuario
+    tipo: 'agregar empleado',
+    tipo1: document.getElementById("tipo_usuario_empleado").value, // Obtener el tipo de usuario
     id_empleado: document.getElementById("id_empleado").value,
     nombre: document.getElementById("nombre").value,
     apellido: document.getElementById("apellido").value,
@@ -99,7 +100,7 @@ function capturaActualizar() {
       nombre: document.getElementById("nombre_actualizar1").value,
       origen: document.getElementById("origen_actualizar1").value,
       precio: document.getElementById("precio_actualizar1").value,
-      cantidad: document.getElementById("cantidad_actualizar1").value
+
   };
   
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar);

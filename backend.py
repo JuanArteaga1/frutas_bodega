@@ -58,7 +58,7 @@ def administrar_datos_endpoint():
         eliminar_empleado(datos)
         return jsonify({"status": "eliminar empleado"}), 200
 
-    elif datos.get('tipo') == 'inicio secion':
+    elif datos.get('tipo') == 'inicio_sesion':
         resul = inicio_seccion(datos)
         return jsonify({"status": resul}), 200   
 def sacar_frutas(datos):
