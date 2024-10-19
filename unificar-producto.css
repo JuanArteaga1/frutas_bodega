@@ -12,7 +12,7 @@ body {
 
 /* Estilos para el menú */
 .navbar {
-    background-color: #4CAF50; /* Color de fondo del menú */
+    background-color: #332f35; /* Color de fondo del menú */
     padding: 15px 0; /* Espaciado superior e inferior */
 }
 
@@ -38,6 +38,7 @@ body {
 
 .menu a:hover {
     text-decoration: underline; /* Subrayar al pasar el mouse */
+    
 }
 
 /* Estilos para el contenedor principal */
@@ -84,33 +85,34 @@ body {
     flex-direction: column; /* Colocar icono y texto verticalmente */
     align-items: center; /* Centrar el contenido */
     padding: 30px; /* Espaciado interno */
-    background-color: #4caf4fad; /* Color de fondo del botón */
+    background-color: #4c4550; /* Color de fondo del botón */
     color: white; /* Color del texto */
     border-radius: 5px; /* Bordes redondeados */
     text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s; /* Efecto de transición */
-    font-size: 1.3em; /* Aumentar tamaño de fuente en botones */
+    transition: background-color 0.3s, transform 0.3s; /* Animación restaurada */
+    font-size: 1.2em; /* Tamaño de fuente ajustado */
     height: 150px; /* Altura fija para todos los botones */
 }
 
 .button-container a:hover {
-    background-color: #45a049; /* Color de fondo al pasar el mouse */
+    background-color: #1f1c23; 
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
 }
 
 /* Estilos para los iconos de los botones */
 .button-container img {
-    width: 50px; /* Aumentar ancho del icono */
-    height: 50px; /* Aumentar alto del icono */
-    margin-bottom: 15px; /* Espaciado inferior del icono */
+    width: 95px; /* Aumentar ancho del icono */
+    height: 95px; /* Aumentar alto del icono */
+    margin-bottom: 20px; /* Espaciado inferior del icono */
 }
 
 /* Estilos para el pie de página */
 footer {
     text-align: center; /* Centrar el texto */
     padding: 15px; /* Espaciado interno */
-    background-color: #4CAF50; /* Color de fondo del pie de página */
+    background-color: #1f1c23; /* Color de fondo del pie de página */
     color: white; /* Color del texto */
     position: relative; /* Posición relativa para el pie de página */
-    width: 100%; /* Ancho completo */
-    font-size: 1.3em; /* Aumentar tamaño de fuente en el pie de página */
+    width: 98,5%; /* Ancho completo */
+    font-size: 1.2em; /* Aumentar tamaño de fuente en el pie de página */
 }

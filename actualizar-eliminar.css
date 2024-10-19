@@ -74,6 +74,25 @@ input[type="tel"] {
     border-radius: 5px;
 }
 
+/* Estilo del botón para "Volver a Gestionar Productos" */
+.boton-regresar {
+    display: inline-block;
+    background-color: #665f6c; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    text-decoration: none; /* Eliminar el subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animación para el hover */
+    text-align: center;
+}
+
+.boton-regresar:hover {
+    background-color: #332f35; /* Cambio de color al pasar el mouse */
+    transform: translateY(-3px); /* Efecto de elevación al hacer hover */
+}
+
+
 .boton-actualizar,
 .boton-eliminar {
     background-color: #665f6c;
@@ -98,7 +117,7 @@ input[type="tel"] {
 
 .enlace-agregar {
     text-decoration: none;
-    color: #f2d30c;
+    color: #ffffff;
     font-size: 18px;
 }
 

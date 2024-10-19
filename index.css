@@ -1,14 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Estilos generales */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #6b73ff 0%, #2ef997 100%);
-    margin: 0;
-    padding: 0;
+    background: url('img/fondotest.png');
+    background-size: cover;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
+}
+
+/* Fondo con opacidad detrás del formulario */
+.background-opacity {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 650px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo negro con opacidad */
+    border-radius: 12px;
+    z-index: 1; /* Aseguramos que el fondo esté detrás del formulario */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra adicional */
 }
 
 /* Contenedor principal del formulario */
@@ -20,6 +39,8 @@ body {
     width: 350px;
     text-align: center;
     transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2; /* Aseguramos que el formulario esté por encima del fondo */
 }
 
 .form-container:hover {
@@ -78,7 +99,7 @@ form h2 {
     display: inline-block;
     width: 100%;
     padding: 12px;
-    background-color: #6b73ff;
+    background-color: #4c4550;
     color: white;
     border-radius: 8px;
     text-decoration: none;
@@ -86,31 +107,31 @@ form h2 {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 10px; /* Espaciado entre botones */
+    margin-top: 10px;
 }
 
 .btn:hover {
-    background-color: #5a62e6;
+    background-color: #332f35;
     transform: translateY(-2px);
 }
 
 .salir-btn {
-    background-color: #ff5f5f;
+    background-color: #4c4550;
 }
 
 .salir-btn:hover {
-    background-color: #e55656;
+    background-color: #332f35;
 }
 
 /* Footer */
 footer {
     position: absolute;
     bottom: 0;
+    height: 50px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #1f1c23;
     color: white;
     text-align: center;
     padding: 10px 0;
-    font-size: 14px;
+    font-size: 20px;
 }
-

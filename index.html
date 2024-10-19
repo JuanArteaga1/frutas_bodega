@@ -8,10 +8,13 @@
 </head>
 <body>
 
+    <!-- Contenedor para el fondo con opacidad -->
+    <div class="background-opacity"></div>
+
     <div class="form-container">
         <!-- Espacio para el logo -->
         <div class="logo-container">
-            <img src="img/la-bodega-logo.png" alt="Logo de la Bodega" class="logo"> <!-- Inserta tu logo aquí -->
+            <img src="img/la-bodega-logo.png" alt="Logo de la Bodega" class="logo">
         </div>
         
         <!-- Formulario de inicio de sesión -->
@@ -23,7 +26,7 @@
             </div>
             <div class="input-group">
                 <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Ingrese su contraseña de 8 dígitos" required pattern="\d{8}" title="La contraseña debe ser de 8 dígitos.">
+                <input type="password" id="password" placeholder="Digite su contraseña de 8 dígitos" required pattern="\d{8}" title="La contraseña debe ser de 8 dígitos.">
             </div>
             <button type="button" class="btn" onclick="capturarDatosLogin()">Ingresar</button>
             <button type="button" class="btn salir-btn" onclick="window.location.href='home.html'">Salir</button>
@@ -39,5 +42,6 @@
     <script src="js/conciencia.js"></script> <!-- Enlaza el archivo JS -->
 
 </body>
+
 </html>
 
