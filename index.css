@@ -24,7 +24,7 @@ body {
     transform: translate(-50%, -50%);
     width: 550px;
     height: 650px;
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo negro con opacidad */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco con opacidad */
     border-radius: 12px;
     z-index: 1; /* Aseguramos que el fondo esté detrás del formulario */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Sombra adicional */
@@ -79,7 +79,7 @@ form h2 {
 }
 
 /* Campos de entrada */
-.input-group input {
+input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -89,7 +89,7 @@ form h2 {
     transition: border-color 0.3s ease;
 }
 
-.input-group input:focus {
+input:focus {
     border-color: #6b73ff;
     outline: none;
 }

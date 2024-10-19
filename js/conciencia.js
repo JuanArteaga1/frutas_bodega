@@ -42,28 +42,31 @@ function capturaSacar(){
     cantidad: document.getElementById("cantidad").value
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida);
+  document.querySelector(".formulario-sacar").reset();
 }
 
-document.querySelector(".formulario-sacar").reset();
 
-//capturar datos del formulario proveedor
-function capturarProveedor(){
-const datos_proveedor = {
-    tipo: 'proveedor',
-    id_proveedor: document.getElementById("id_proveedor").value,
-    nombre: document.getElementById("nombre").value,  // Cambié "nomproveedor" a "nombre"
-    telefono: document.getElementById("telefono").value,
-    direccion: document.getElementById("direccion").value,
-    email: document.getElementById("email").value
-}
-enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_proveedor);
 
+// Función para capturar datos del formulario proveedor
+function capturarProveedor() {
+  const datos_proveedor = {
+      tipo: 'proveedor',
+      id_proveedor: document.getElementById("id_proveedor").value,
+      nombre: document.getElementById("nombre").value,
+      telefono: document.getElementById("telefono").value,
+      direccion: document.getElementById("direccion").value,
+      email: document.getElementById("email").value
+  };
+
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_proveedor);
+  alert('Proveedor agregado con éxito.'); // Alerta de éxito
+  document.querySelector(".formulario-proveedor").reset(); // Limpiar formulario
 }
 
 // Capturar datos del formulario empleado
 function capturarEmpleado() {
   const datos_empleado = {
-    tipo: 'agregar empleado',
+    tipo: 'empleado',
     tipo1: document.getElementById("tipo_usuario_empleado").value, // Obtener el tipo de usuario
     id_empleado: document.getElementById("id_empleado").value,
     nombre: document.getElementById("nombre").value,
@@ -74,6 +77,7 @@ function capturarEmpleado() {
     contraseña: document.getElementById("contraseña").value,
   }
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_empleado);
+  alert('empleado agregado con éxito.'); // Alerta de éxito
 
   document.querySelector(".formulario-empleado").reset();
 }
@@ -171,27 +175,6 @@ function capturarActualizarEmpleado() {
   alert('Información del empleado actualizada con éxito.');
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
-
-function capturarDatosLogin() {
-  const datos_login = {
-      tipo: 'inicio_sesion',
-      usuario: document.getElementById("username").value,
-      contraseña: document.getElementById("password").value
-  };
-
-  // Aquí podrías enviar los datos al servidor si es necesario
-  enviarDatosAlServidor('http://127.0.0.1:5000/iniciar_sesion', datos_login);
-  
-  // Alertar al usuario (opcional)
-  alert('Datos capturados ');  // + JSON.stringify(datos_login) para visulizar los datos del formulario
-
-  // Limpiar el formulario después de capturar los datos
-  document.getElementById("login-form").reset();
-
-  // Redirigir a unificar-producto.html
-  window.location.href = 'unificar-producto.html';
-}
-
 
 
 // Función para obtener los datos del backend

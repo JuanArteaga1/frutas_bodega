@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Configuración de la base de datos MySQL
 bd = mysql.connector.connect(
     user="root",
-    password="133724",
+    password="123456",
     host="localhost",
     database="administracion_bodega"
 )
