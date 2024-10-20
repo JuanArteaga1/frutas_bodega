@@ -148,7 +148,11 @@ def agregar_proveedor(datos):
         bd.commit()
 def agregar_empleado(datos):
     identificacion = int(datos.get('id_empleado'))
-    jerarquia = 1
+    jerarquia = str(datos.get('tipo1'))
+    if jerarquia == 'administrador':
+        numero_jerarquia = 2
+    else :
+        numero_jerarquia = 1    
     nombre_empleado = str(datos.get('nombre'))
     apellido = str(datos.get('apellido'))
     direccion = str(datos.get('direccion'))
@@ -161,7 +165,7 @@ def agregar_empleado(datos):
         cursor.execute("""
             INSERT INTO empleados (id_empleados, id_jerarquia, nombre, apellido, email, telefono, direccion, contraseña) 
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """, (identificacion, jerarquia, nombre_empleado, apellido, email, telefono, direccion, contraseña_empleado))
+        """, (identificacion, numero_jerarquia, nombre_empleado, apellido, email, telefono, direccion, contraseña_empleado))
         bd.commit()
 def eliminar_proveedor(datos):
     identificacion =int(datos.get('id_proveedor'))
