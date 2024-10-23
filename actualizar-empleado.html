@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="js/conciencia.js" defer></script>
     <title>Actualizar y Eliminar Empleados</title>
 </head>
+
 <body>
     <main class="contenido">
         <h1>ACTUALIZAR Y ELIMINAR EMPLEADOS</h1>
@@ -15,37 +17,44 @@
             <div class="formulario-container">
                 <h2>Actualizar Información del Empleado</h2>
                 <form class="formulario-actualizar">
-                    <label for="id_empleado_actualizar1">ID del Empleado</label>
-                    <input type="number" id="id_empleado_actualizar1" placeholder="Ingrese el ID del empleado" required>
-                    
-                    <label for="nombre_empleado_actualizar1">Nombre del Empleado</label>
-                    <input type="text" id="nombre_empleado_actualizar1" placeholder="Ingrese el nombre del empleado" pattern="[A-Za-z0-9\s\W]+" required>
-                    
+
+
+                    <label for="empleados">Empleados:</label>
+                    <select id="empleados">
+                        <option value="">--Seleccione un empleado--</option>
+                    </select>
+
                     <label for="apellido_empleado_actualizar1">Apellido del Empleado</label>
-                    <input type="text" id="apellido_empleado_actualizar1" placeholder="Ingrese el apellido del empleado" pattern="[A-Za-z0-9\s\W]+" required>
-                    
+                    <input type="text" id="apellido_empleado_actualizar1" placeholder="Ingrese el apellido del empleado"
+                        pattern="[A-Za-z0-9\s\W]+" required>
+
                     <label for="direccion_empleado_actualizar1">Dirección</label>
-                    <input type="text" id="direccion_empleado_actualizar1" placeholder="Ingrese la dirección" pattern="[A-Za-z0-9\s\W]+" required>
-                    
+                    <input type="text" id="direccion_empleado_actualizar1" placeholder="Ingrese la dirección"
+                        pattern="[A-Za-z0-9\s\W]+" required>
+
                     <label for="email_empleado_actualizar1">Correo Electrónico</label>
-                    <input type="email" id="email_empleado_actualizar1" placeholder="Ingrese el correo electrónico" required>
-                    
+                    <input type="email" id="email_empleado_actualizar1" placeholder="Ingrese el correo electrónico"
+                        required>
+
                     <label for="telefono_empleado_actualizar1">Número de Teléfono</label>
-                    <input type="tel" id="telefono_empleado_actualizar1" placeholder="Ingrese el número de teléfono" required>
-                    
-                    <button type="button" class="boton-actualizar" onclick="capturarActualizarEmpleado()">Actualizar</button>
+                    <input type="tel" id="telefono_empleado_actualizar1" placeholder="Ingrese el número de teléfono"
+                        required>
+
+                    <button type="button" class="boton-actualizar"
+                        onclick="capturarActualizarEmpleado()">Actualizar</button>
                 </form>
-                
+
             </div>
 
             <div class="formulario-container">
                 <h2>Eliminar Empleado</h2>
                 <form class="formulario-eliminar">
-                    <label for="id_empleado_eliminar1">ID del Empleado</label>
-                    <input type="number" id="id_empleado_eliminar1" placeholder="Ingrese el ID del empleado" required>
 
-                    <label for="nombre_empleado_eliminar1">Nombre del Empleado</label>
-                    <input type="text" id="nombre_empleado_eliminar1" placeholder="Ingrese el nombre del empleado" pattern="[A-Za-z0-9\s\W]+" required>
+
+                    <label for="empleados">Empleados:</label>
+                    <select id="empleados">
+                        <option value="">--Seleccione un empleado--</option>
+                    </select>
 
                     <h1>Datos de la Bodega</h1>
                     <pre id="data"></pre>
@@ -64,4 +73,5 @@
     </footer>
     <script src="js/conciencia.js"></script> <!-- Asegúrate de incluir tu archivo JS -->
 </body>
+
 </html>

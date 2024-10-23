@@ -177,18 +177,3 @@ function capturarActualizarEmpleado() {
 }
 
 
-// Función para obtener los datos del backend
-async function fetchData() {
-  try {
-      const response = await fetch('http://127.0.0.1:5000//nombre_empleados');
-      const data = await response.json();
-
-      // Mostrar los datos en el elemento con ID 'data'
-      document.getElementById('data').innerText = JSON.stringify(data, null, 2);
-  } catch (error) {
-      console.error('Error al obtener los datos:', error);
-  }
-}
-
-// Llamar a la función
-fetchData();

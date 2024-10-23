@@ -1,14 +1,17 @@
 import mysql.connector
-import pandas as pd
 from datetime import datetime
+from flask import Flask, request, jsonify,send_from_directory
+from flask_cors import CORS
 from flask import Flask, request, jsonify
+
 
 # Configuración de la aplicación Flask
 app = Flask(__name__)
+CORS(app)
 # Configuración de la base de datos MySQL
 bd = mysql.connector.connect(
     user="root",
-    password="123456",
+    password="133724",
     host="localhost",
     database="administracion_bodega"
 )
@@ -104,35 +107,23 @@ def sacar_frutas(datos):
     else:
         print("El producto no existe en la base de datos.")
 def agregar_fruta(datos):
-    id_producto = int(datos.get('id_producto'))
     nombre = str(datos.get('nombre'))
     precio = int(datos.get('precio'))
     origen = str(datos.get('origen'))
     cantidad = int(datos.get('cantidad'))
     fecha_hoy = datetime.now()
-    cursor.execute("SELECT id_producto FROM productos WHERE id_producto = %s", (id_producto,))
+    cursor.execute("SELECT nombre FROM productos WHERE nombre = %s and precio = %s", (nombre,precio))
     producto_existente = cursor.fetchone()
-    if producto_existente:
-        cursor.execute("SELECT cantidad_actual FROM inventario WHERE id_producto = %s", (id_producto,))
+    if producto_existente == None:
+        cursor.callproc('ingresar_producto',(nombre,precio,origen,cantidad,fecha_hoy,cantidad))
+    else:
+        cursor.execute("SELECT cantidad_actual FROM inventario WHERE nombre = %s", (nombre,))
         cantidad_movimiento = cursor.fetchone()
         if cantidad_movimiento:
             cantidad_movimiento = cantidad_movimiento[0] + cantidad
             cursor.execute(
                 "INSERT INTO inventario(id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
-                (id_producto, cantidad_movimiento, fecha_hoy, cantidad))
-        else:
-            cursor.execute(
-                    "INSERT INTO inventario(id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
-                    (id_producto, cantidad, fecha_hoy, cantidad))
-        
-    else:
-        cursor.execute(
-            "INSERT INTO productos (id_producto, nombre, precio, origen) VALUES (%s, %s, %s, %s)",
-            (id_producto, nombre, precio, origen)
-    )
-        cursor.execute(
-                "INSERT INTO inventario(id_producto, cantidad_actual, fecha_movimiento, cantidad_movimiento) VALUES (%s, %s, %s, %s)",
-                (id_producto, cantidad, fecha_hoy, cantidad))
+                ( cantidad_movimiento, fecha_hoy, cantidad))
     bd.commit()
 def agregar_proveedor(datos):
     identificacion = int(datos.get('id_proveedor'))
@@ -154,7 +145,6 @@ def agregar_empleado(datos):
     else :
         numero_jerarquia = 1    
     nombre_empleado = str(datos.get('nombre'))
-    apellido = str(datos.get('apellido'))
     direccion = str(datos.get('direccion'))
     email = str(datos.get('email'))
     telefono = str(datos.get('telefono'))
@@ -163,9 +153,9 @@ def agregar_empleado(datos):
     empleado_existente = cursor.fetchone()
     if empleado_existente == None:  
         cursor.execute("""
-            INSERT INTO empleados (id_empleados, id_jerarquia, nombre, apellido, email, telefono, direccion, contraseña) 
+            INSERT INTO empleados (id_empleados, id_jerarquia, nombre, email, telefono, direccion, contraseña) 
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """, (identificacion, numero_jerarquia, nombre_empleado, apellido, email, telefono, direccion, contraseña_empleado))
+        """, (identificacion, numero_jerarquia, nombre_empleado, email, telefono, direccion, contraseña_empleado))
         bd.commit()
 def eliminar_proveedor(datos):
     identificacion =int(datos.get('id_proveedor'))
@@ -182,11 +172,11 @@ def eliminar_empleado(datos):
         cursor.execute("DELETE FROM empleados WHERE id_empleados = %s", (identificacion,))
         bd.commit()
 def eliminarproducto(datos):
-    id_producto = int(datos.get('id_producto'))
-    cursor.execute("SELECT id_producto FROM productos WHERE id_producto = %s", (id_producto,))
+    nombre = str(datos.get('nombre'))
+    cursor.execute("SELECT id_producto FROM productos WHERE nombre = %s", (nombre,))
     producto_existente = cursor.fetchone()
     if producto_existente:
-        cursor.execute("DELETE FROM inventario WHERE id_producto = %s", (id_producto,))
+        cursor.execute("DELETE FROM inventario WHERE nombre = %s", (id_producto,))
         bd.commit()
         cursor.execute("DELETE FROM productos  WHERE id_producto = %s", (id_producto,))
         bd.commit()
@@ -235,21 +225,72 @@ def inicio_seccion(datos):
     else:
         return False
     
-# Ruta para obtener los nombres y apellidos de los empleados
-@app.route('/nombre_empleados', methods=['POST'])
-def nombre_empleados():
-    cursor.execute("select nombre, apellido from empleados")
+
+@app.route('/')
+def serve_html():
+    return send_from_directory('.', 'home.html')
+
+@app.route('/administrar_datos', methods=['GET'])
+def administrar_datos():
+    if bd and cursor:
+        # Obtener productos, empleados y proveedores
+        productos = obtener_datos()
+        empleados = obtener_empleados()
+        proveedores = obtener_proveedores()  # Cambié a obtener_proveedores
+
+        # Combinar resultados en un solo JSON
+        return jsonify({
+            'productos': productos,
+            'empleados': empleados,
+            'proveedores': proveedores
+        }), 200
+    else:
+        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+
+def obtener_datos():
+    cursor.execute("SELECT id_producto, nombre, origen, precio FROM productos")
     resultados = cursor.fetchall()
-    columnas = [i[0] for i in cursor.description]
-    df =  pd.DataFrame(resultados, columns=columnas)
-    nombre_apellidos = df.to_dict(orient='records')
-    for item in nombre_apellidos:
-        nombre = item['nombre']
-        apellido = item['apellido']
-        print(f'nombre: {nombre}, apellido: {apellido}')
-    cursor.close()
-    return jsonify(nombre_apellidos)
     
+    productos = []
+    for fila in resultados:
+        datos = {
+            'nombre': fila[1],  # Nombre del producto con origen
+        }
+        productos.append(datos)
+
+    return productos
+
+def obtener_empleados():
+    cursor.execute("SELECT nombre, apellido FROM empleados")
+    resultados = cursor.fetchall()
+    empleados = []
+    
+    for fila in resultados:
+        empleado = {
+            'nombre': fila[0],
+            'apellido': fila[1]  # Nombre completo del empleado
+        }
+        empleados.append(empleado)
+
+    return empleados
+
+def obtener_proveedores():
+    cursor.execute("SELECT nombre FROM proveedores")
+    resultados = cursor.fetchall()
+    proveedores = []
+
+    for fila in resultados:
+        proveedor = {
+            'nombre': fila[0],  # Nombre del proveedor
+        }
+        proveedores.append(proveedor)
+
+    return proveedores
+
+# Ruta para obtener los nombres y apellidos de los empleados
+
+    
+
 
 
 
