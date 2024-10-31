@@ -1,8 +1,8 @@
 //este en mi archivos conciencia.js que esta una carperta que se llama js. js/conciencia.js//
 
-function enviarDatosAlServidor(url, datos) {
+function enviarDatosAlServidor(url, datos, metodo = 'POST') {
   fetch(url, {
-      method: 'POST',  // Método HTTP POST para enviar datos
+      method: metodo,  // Método HTTP POST para enviar datos
       headers: {
       'Content-Type': 'application/json',  // Indicamos que estamos enviando datos en formato JSON
   },
@@ -41,7 +41,7 @@ function capturaSacar(){
     nomfruta: document.getElementById("nombre").value,
     cantidad: document.getElementById("cantidad").value
   }
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_salida, 'PATCH');
   document.querySelector(".formulario-sacar").reset();
 }
 
@@ -91,7 +91,7 @@ function capturaEliminar() {
       nombre: document.getElementById("nombre_eliminar1").value
   };
   
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar, 'DELETE');
   alert('Producto eliminado con éxito.'); // Alerta de éxito
   document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
@@ -107,7 +107,7 @@ function capturaActualizar() {
 
   };
   
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar, 'PUT');
   alert('Información del producto actualizada con éxito.'); // Alerta de éxito
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
@@ -120,7 +120,7 @@ function capturarEliminarProveedor() {
       nombre: document.getElementById("nombre_proveedor_eliminar1").value 
   };
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar, 'DELETE');
   alert('Proveedor eliminado con éxito.');
   document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
@@ -138,7 +138,7 @@ function capturarActualizarProveedor() {
       email: document.getElementById("email_proveedor_actualizar1").value 
   };
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar, 'PUT');
   alert('Información del proveedor actualizada con éxito.');
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
@@ -153,7 +153,7 @@ function capturarEliminarEmpleado() {
       nombre: document.getElementById("nombre_empleado_eliminar1").value 
   };
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_eliminar, 'DELETE');
   alert('Empleado eliminado con éxito.');
   document.querySelector(".formulario-eliminar").reset(); // Limpiar formulario
 }
@@ -171,7 +171,7 @@ function capturarActualizarEmpleado() {
       telefono: document.getElementById("telefono_empleado_actualizar1").value 
   };
 
-  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar);
+  enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar, 'PUT');
   alert('Información del empleado actualizada con éxito.');
   document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }

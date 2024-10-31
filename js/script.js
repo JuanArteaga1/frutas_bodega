@@ -1,5 +1,5 @@
 function obtenerDatos() {
-    fetch('http://localhost:5000/administrar_datos') // URL correcta
+    fetch('http://localhost:5000/administrar_datos_sacar') // URL correcta
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -13,6 +13,7 @@ function obtenerDatos() {
             cargarEmpleados(data.empleados);
             // Mostrar los proveedores en una lista desplegable
             cargarProveedores(data.proveedores);
+            
         })
         .catch(error => {
             console.error('Hubo un problema con la solicitud Fetch:', error);
