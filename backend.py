@@ -261,14 +261,13 @@ def obtener_datos():
     return productos
 
 def obtener_empleados():
-    cursor.execute("SELECT nombre, apellido FROM empleados")
+    cursor.execute("SELECT nombre FROM empleados")
     resultados = cursor.fetchall()
     empleados = []
     
     for fila in resultados:
         empleado = {
-            'nombre': fila[0],
-            'apellido': fila[1]  # Nombre completo del empleado
+            'nombre': fila[0],  # Nombre completo del empleado
         }
         empleados.append(empleado)
 
