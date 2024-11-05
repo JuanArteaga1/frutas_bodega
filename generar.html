@@ -1,37 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="generar.css">
-    <title>Generar</title>
+    <title>Generador de QR e Imprimir</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
+
 <body>
-    <div class="contenedor">
-        <nav class="menu">
-            <button class="menu-toggle">MENU</button>
-            <ul class="menu-items">
-                <li><a href="unificar-producto.html">Gestionar Productos</a></li>
-                <li><a href="gestionar-proveedor.html">Gestionar Proveedor</a></li>
-                <li><a href="empleado.html">Agregar Empleado</a></li>
-                <li><a href="home.html">Salir</a></li>
-            </ul>
-        </nav>
-        <div class="contenido-adicional">
-            <div class="cuadro-principal">
-                <div id="qrcode" class="imagen-codigo"></div>
-                <div class="botones">
-                    <button class="btn" onclick="generarQR('entradas')">Generar Código de Entradas</button>
-                    <button class="btn" onclick="generarQR('salidas')">Generar Código de Salidas</button>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p>© 2024 Bodega La Quindianita</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <script src="generar.js"></script>
+    <h1>Generador de Código QR</h1>
+    <form class="formulario-producto" onsubmit="event.preventDefault();">
+        <label for="id_producto">ID del Producto:</label>
+        <input type="text" id="id_producto" required>
+
+        <br><br>
+
+        <label for="id_base">ID Base:</label>
+        <input type="text" id="id_base" required>
+
+        <br><br>
+        <div id="qrcode" style="margin-top: 20px;"></div>
+        <button type="button" id="btn_imprimir" onclick="imprimirQR()">Imprimir QR</button>
+        <button type="button" id="btn_enviar" onclick="enviarDatos()">Enviar Datos</button>
+    </form>
+
+    <script>
+        function obtenerDatos() {
+            fetch('http://localhost:5000/main') // URL correcta
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Convertir la respuesta a JSON
+                })
+                .then(data => {
+                    // Mostrar los productos en una lista desplegable
+                    generarQR(data);
+                })
+                .catch(error => {
+                    console.error('Hubo un problema con la solicitud Fetch:', error);
+                });
+        }
+
+        function generarQR(data) {
+            var texto = 'https://www.youtube.com/watch?v=1GS7wxWPaxc';
+
+            // Limpia el código QR existente
+            document.getElementById("qrcode").innerHTML = "";
+
+            // Genera el nuevo código QR
+            new QRCode(document.getElementById("qrcode"), {
+                text: texto,
+                width: 128,
+                height: 128
+            });
+        }
+
+        function imprimirQR() {
+            window.print(); // Abre el diálogo de impresión del navegador
+        }
+
+        function enviarDatosAlServidor(url, datos, metodo = 'POST') {
+            fetch(url, {
+                method: metodo,  // Método HTTP POST para enviar datos
+                headers: {
+                    'Content-Type': 'application/json',  // Indicamos que estamos enviando datos en formato JSON
+                },
+                body: JSON.stringify(datos),  // Convertimos los datos en formato JSON
+            })
+                .then(response => response.json())  // Convertimos la respuesta en JSON
+                .then(data => {
+                    console.log('Respuesta del servidor:', data);  // Mostramos la respuesta del servidor en la consola
+                })
+                .catch((error) => {
+                    console.error('Error al enviar los datos:', error);  // Manejamos cualquier error
+                });
+        }
+
+        function enviarDatos() {
+            const datos_entrada = {
+                tipo: 'entrada',
+                id_producto: document.getElementById("id_producto").value,
+                id: document.getElementById("id_base").value,
+            };
+            console.log(datos_entrada);
+            enviarDatosAlServidor('http://127.0.0.1:5000/main', datos_entrada);
+            document.querySelector(".formulario-producto").reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', obtenerDatos); // Llama a obtenerDatos al cargar el documento
+    </script>
 </body>
+
 </html>
