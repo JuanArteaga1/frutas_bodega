@@ -21,7 +21,6 @@ function enviarDatosAlServidor(url, datos, metodo = 'POST') {
 function enviarDatos()  {
   const datos_entrada = {
       tipo: 'entrada',
-      id_producto: document.getElementById("id_producto").value,
       nombre: document.getElementById("nombre").value,
       origen: document.getElementById("origen").value,
       precio: document.getElementById("precio").value,
@@ -100,8 +99,7 @@ function capturaEliminar() {
 function capturaActualizar() {
   const datos_actualizar = {
       tipo: 'actualizar_producto', // Corrige 'actulizar' a 'actualizar'
-      id_producto: document.getElementById("id_producto_actualizar1").value,
-      nombre: document.getElementById("nombre_actualizar1").value,
+      nombre: document.getElementById("eliminar_producto").value,
       origen: document.getElementById("origen_actualizar1").value,
       precio: document.getElementById("precio_actualizar1").value,
 
@@ -173,7 +171,5 @@ function capturarActualizarEmpleado() {
 
   enviarDatosAlServidor('http://127.0.0.1:5000/administrar_datos', datos_actualizar, 'PUT');
   alert('Información del empleado actualizada con éxito.');
-  document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
+  document.querySelector(".formulario-actualizar").reset(); // Limpiar formulario
 }
-
-

@@ -17,7 +17,7 @@ bd = mysql.connector.connect(
 )
 cursor = bd.cursor()
 # Ruta para agregar frutas
-@app.route('/administrar_datos', methods=['POST'])
+#@app.route('/administrar_datos', methods=['POST'])
 def administrar_datos():
     datos = request.json
     if datos.get('tipo') == 'entrada':
@@ -53,33 +53,12 @@ def administrar_datos_actualizar():
     elif datos.get('tipo') == 'actualizar_empleado':
         actualizar_empleado(datos)
         return jsonify({"status": "actializar empleado"}), 200
-@app.route('/administrar_datos', methods=['PATCH'])  
+#@app.route('/administrar_datos', methods=['POST'])  
 def administrar_datos_sacar():
     datos = request.json
     if datos.get('tipo') == 'salida':
         sacar_frutas(datos)
         return jsonify({"status": "sacar prodcuto"}), 200
-@app.route('/')
-def serve_html():
-    return send_from_directory('.', 'home.html')
-@app.route('/administrar_datos_sacar', methods=['GET'])
-def administrar_datos_mostrar():
-    if bd and cursor:
-        # Obtener productos, empleados y proveedores
-        productos = obtener_datos()
-        empleados = obtener_empleados()
-        proveedores = obtener_proveedores()
-        # Cambié a obtener_proveedores
-        # Combinar resultados en un solo JSON
-        for x in empleados:
-            print(x)
-        return jsonify({
-            'productos': productos,
-            'empleados': empleados,
-            'proveedores': proveedores
-        }), 200
-    else:
-        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
 
 
 
@@ -197,20 +176,18 @@ def eliminarproducto(datos):
     cursor.execute("SELECT id_producto FROM productos WHERE nombre = %s", (nombre,))
     producto_existente = cursor.fetchone()
     if producto_existente:
-        cursor.execute("DELETE FROM inventario WHERE nombre = %s", (producto_existente,))
+        id_producto = producto_existente[0]  # Obtener el ID de producto
+        cursor.execute("DELETE FROM inventario WHERE id_producto = %s", (id_producto,))
         bd.commit()
-        cursor.execute("DELETE FROM productos  WHERE id_producto = %s", (nombre,))
+        cursor.execute("DELETE FROM productos WHERE nombre = %s", (nombre,))
         bd.commit()
 def actualizar_producto(datos):
     nombre = str(datos.get('nombre'))
     nuevo_precio = int(datos.get('precio'))
     nuevo_origen = str(datos.get('origen'))
-    cursor.execute("SELECT id_producto FROM productos WHERE nombre = %s", (nombre,))
-    producto_existente = cursor.fetchone()
-    if producto_existente:
-        print("entro")
-        cursor.execute("""UPDATE productos SET nombre = %s, precio = %s, origen = %s  WHERE id_producto = %s""", (nombre, nuevo_precio, nuevo_origen, producto_existente))
-        bd.commit() 
+    print("entro")
+    cursor.execute("""UPDATE productos SET precio = %s, origen = %s  WHERE nombre = %s""", ( nuevo_precio, nuevo_origen, nombre))
+    bd.commit()
 def actualizar_proveedor(datos):
     identificacion =int(datos.get('id_proveedor'))
     nombre_proveedor =str(datos.get('nombre'))
@@ -284,7 +261,20 @@ def obtener_proveedores():
 
 # Ruta para obtener los nombres y apellidos de los empleados
 
-
+@app.route('/administrar_datos', methods=['GET'])
+def administrar_datos():
+    cursor.execute("SELECT id_producto, nombre, origen, precio FROM productos")
+    resultados = cursor.fetchall()
+    datos = []
+    for fila in resultados:
+        dato = {
+            'id_producto': fila[0],
+            'nombre': fila[1],
+            'origen': fila[2],
+            'precio': fila[3],
+        }
+        datos.append(dato)
+    return jsonify(datos), 200
 
 
 
@@ -292,4 +282,3 @@ def obtener_proveedores():
 
 if __name__ == '__main__':
     app.run(debug=True) # Inicia la aplicación Flask en modo de depuración
-    
